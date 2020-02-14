@@ -1,0 +1,15 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# Aliases
+alias wifiscan='nmcli device wifi list'
+alias dcompose-down="sudo docker-compose down --rmi all -v --remove-orphans"
+
+umask 022

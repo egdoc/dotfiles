@@ -1,0 +1,226 @@
+# default modifier
+set $mod Mod4
+
+# default applications
+set $fm               thunar
+set $browser          firefox
+set $calculator       mate-calc
+
+# set variable for fonts since we use the same on titlebar and i3bar
+set $font Terminus 8
+
+# font for window titles. ISO 10646 = Unicode
+font pango:$font
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+Shift+Q kill
+
+# dmenu shortcuts
+bindsym $mod+shift+d exec i3-dmenu-desktop --dmenu="dmenu -i"
+bindsym $mod+d exec "dmenu_run"
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+J move left
+bindsym $mod+Shift+K move down
+bindsym $mod+Shift+L move up
+bindsym $mod+Shift+colon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, default)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout default
+
+# change decoration/border style
+bindsym $mod +t border normal
+bindsym $mod +y border pixel 3
+bindsym $mod +u border none
+
+# set default window border style
+new_window normal
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindcode $mod+d focus child
+
+# assign variable with workspace names
+set $WS1 1
+set $WS2 2
+set $ws3 3
+set $WS4 4
+set $WS5 5
+set $WS6 6
+set $WS7 7
+set $WS8 8
+set $WS9 9
+set $WS10 10
+
+# switch to workspace
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8
+bindsym $mod+Shift+9 move container to workspace $WS9
+bindsym $mod+Shift+0 move container to workspace $WS10
+
+# shortcuts to change bar mode
+bindsym $mod+shift+h bar mode toggle
+bindsym $mod+shift+minus bar mode dock
+bindsym $mod+minus bar mode invisible
+
+# shortcuts to launch applications
+bindsym Control+Mod1+Escape exec "sleep 0.2s && xkill"
+bindsym $mod+F1 exec $browser
+bindsym $mod+F2 exec $fm
+bindsym Print exec scrot -e 'mv $f ~/Pictures'
+bindsym --release shift+Print exec scrot -s -e 'mv $f ~/Pictures'
+
+# shortcuts to change keyboard map under X
+bindsym Control+Mod1+i exec "setxkbmap it"
+bindsym Control+Mod1+e exec "setxkbmap en_US"
+
+# applications specific settings
+for_window [class="^.*"] border normal
+for_window [class="code-oss"] border none
+for_window [class="Pinentry-gtk-2"] floating enable
+for_window [class="Arandr"] floating enable
+for_window [class="Gpicview"] floating enable
+for_window [class="Viewnior"] floating enable
+for_window [class="Nitrogen"] floating enable
+for_window [class="System-config-printer.py"] floating enable
+for_window [class="guvcview"] floating enable
+for_window [class="File-roller"] floating enable
+
+# XF86 shortcuts
+bindsym XF86AudioRaiseVolume exec "pactl -- set-sink-volume `pactl list short sinks | grep RUNNING | cut -f1` +5%"
+bindsym XF86AudioLowerVolume exec "pactl -- set-sink-volume `pactl list short sinks | grep RUNNING | cut -f1` -5%"
+bindsym XF86AudioMute exec "pactl -- set-sink-mute `pactl list short sinks | grep RUNNING | cut -f1` toggle"
+bindsym XF86Calculator exec $calculator
+bindsym --release XF86ScreenSaver exec slock
+bindsym XF86Mail exec "i3-sensible-terminal -title  mutt -e mutt"
+bindsym XF86WWW exec $browser
+
+# Alternatives in case XF86 shortcuts are not available
+bindsym Control+Mod1+l --release exec slock
+bindsym Control+Mod1+j exec eject
+
+# back and forth
+workspace_auto_back_and_forth yes
+bindsym $mod+z workspace back_and_forth
+bindsym $mod+Shift+z move container to workspace back_and_forth; workspace back_and_forth
+
+# reload the configuration file
+bindsym $mod+Shift+C reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+R restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+  bindsym j resize shrink width 10 px or 10 ppt
+  bindsym k resize grow height 10 px or 10 ppt
+  bindsym l resize shrink height 10 px or 10 ppt
+  bindsym semicolon resize grow width 10 px or 10 ppt
+
+  # same bindings, but for the arrow keys
+  bindsym 113 resize shrink width 10 px or 10 ppt
+  bindsym 116 resize grow height 10 px or 10 ppt
+  bindsym 111 resize shrink height 10 px or 10 ppt
+  bindsym 114 resize grow width 10 px or 10 ppt
+
+  # back to default mode
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+# system mode: to easily shutdown,reboot,suspend or hibernate
+set $mode_system System: (l) lock (e) logout (s) suspend (r) reboot (p) poweroff
+mode "$mode_system" {
+  bindsym --release l exec --no-startup-id slock
+  bindsym e exec --no-startup-id "i3-msg exit", mode "default"
+  bindsym s exec --no-startup-id "systemctl suspend", mode "default"
+  bindsym r exec --no-startup-id "systemctl reboot", mode "default"
+  bindsym p exec --no-startup-id "systemctl poweroff", mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+# Display mode: choose monitor configuration
+set $mode_display Display: (e) External only (i) Internal only (b) Both (Internal as primary)
+mode "$mode_display" {
+  bindsym e exec --no-startup-id "xrandr --output LVDS-1 --off --output HDMI-1 --auto --primary"
+  bindsym i exec --no-startup-id "xrandr --output HDMI-1 --off --output LVDS-1 --auto --primary"
+  bindsym b exec --no-startup-id "xrandr --output HDMI-1 --auto --primary --output LVDS-1 --auto --right-of HDMI-1"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+# shortcute to switch "modes"
+bindsym $mod+r mode "resize"
+bindsym $mod+Escape mode "$mode_system"
+bindsym $mod+F8 mode "$mode_display"
+
+# Start i3bar
+bar {
+  position bottom
+  status_command i3status
+  font pango: $font
+  tray_output primary
+}

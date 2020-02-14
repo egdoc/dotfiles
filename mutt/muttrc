@@ -1,0 +1,56 @@
+# System configuration file for Mutt
+source ~/.mutt/color_schemes/mutt-colors-solarized-light-16.muttrc
+source "gpg2 -dq $HOME/.password-store/mutt.gpg"|
+
+# General setting
+set ssl_starttls = yes
+set ssl_force_tls = yes
+set abort_nosubject = no
+set check_new = yes
+set mail_check = 5
+set beep_new = yes
+set delete = ask-yes
+set include = ask-yes
+set signature = "~/.mutt/signature"
+set use_domain = yes
+set copy = no
+set move = no
+
+
+# Local folders
+set mailcap_path = ~/.mutt/mailcap
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
+set mbox = $HOME/Mail/mbox
+
+
+# Gpg settings
+source ~/.mutt/gpg.rc
+set pgp_use_gpg_agent = yes
+set pgp_default_key = 0x2A846BB0B75424D8
+set pgp_sign_as = 0xD2CB98A8FB22E42D
+set pgp_timeout = 3600
+set crypt_autosign = yes
+set crypt_replyencrypt = yes
+
+
+# Contacts query
+#set query_command="~/.local/bin/pc_query -m '%s'"
+set query_command="goobook query '%s'"
+bind editor <Tab> complete-query
+bind editor <space> noop
+
+
+# Macros
+macro index,pager a "<pipe-message>goobook add<return>" "add sender address to Google contacts"
+macro index,pager \cb "<pipe-message>urlscan<Enter>" "call urlscan"
+macro attach,compose \cb "<pipe-entry>urlscan<Enter>" "call urlscan"
+macro attach D <save-entry><kill-line>$HOME/Downloads/
+macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
+macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
+macro index gi "<change-folder>=INBOX<Enter>" "go to inbox"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "go to all mail"
+macro index gt "<change-folder>=[Gmail]/Trash<enter>" "go to trash"
+macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "go to sent"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "go to drafts"
