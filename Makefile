@@ -73,6 +73,10 @@ smplayer:
 picard:
 	$(call symlink_dir,$(CURDIR)/picard/MusicBrainz,~/.config/MusicBrainz)
 
+.PHONY: gtk3
+gtk3:
+	$(call symlink_dir,$(CURDIR)/gtk3,~/.config/gtk-3.0)
+
 .PHONY: uninstall
 clean:
 	find ~ -lname "$(CURDIR)/*" -delete

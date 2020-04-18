@@ -114,9 +114,15 @@ set t_Cs=
 set t_8f=[38;2;%lu;%lu;%lum
 set t_8b=[48;2;%lu;%lu;%lum
 set modifiable
+set clipboard=unnamedplus
 set termguicolors
 colorscheme nord
 
+if has('gui')
+  set guioptions-=m
+  set guioptions-=T
+  set guioptions-=r
+endif
 
 " Autocommands
 augroup autorun
