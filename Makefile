@@ -23,6 +23,7 @@ tmux:
 .PHONY: xorg
 xorg:
 	ln -sf $(CURDIR)/xorg/xinitrc ~/.xinitrc
+	ln -sf $(CURDIR)/xorg/Xresources ~/.Xresources
 
 .PHONY: xfce4-terminal
 xfce4-terminal:
