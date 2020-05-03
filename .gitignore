@@ -5,3 +5,4 @@ vim/vim/autoload/**
 vim/vim/.netrwhist
 mutt/mutt/cache/**
 mutt/mutt/certificates/**
+powerline-fonts

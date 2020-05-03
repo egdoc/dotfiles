@@ -59,7 +59,6 @@ npm:
 
 .PHONY: python
 python:
-	pip3 install pylint virtualenv --user
 	ln -sf $(CURDIR)/python/pylintrc ~/.pylintrc
 
 .PHONY: sakura
@@ -78,12 +77,23 @@ picard:
 gtk3:
 	$(call symlink_dir,$(CURDIR)/gtk3,~/.config/gtk-3.0)
 
-.PHONY: uninstall
-clean:
-	find ~ -lname "$(CURDIR)/*" -delete
-
 .PHONY: baseconfig
 baseconfig: vim bash python npm
 
 .PHONY: i3-standalone
 i3-standalone: baseconfig xorg i3 nitrogen
+
+powerline-fonts:
+	git clone https://github.com/powerline/fonts $(CURDIR)/powerline-fonts
+
+.PHONY: install-powerline-fonts
+install-powerline-fonts: powerline-fonts
+	$(CURDIR)/powerline-fonts/install.sh
+
+uninstall-powerline-fonts:
+	/bin/bash "$(CURDIR)/powerline-fonts/uninstall.sh"
+	$(CURDIR)/powerline-fonts/uninstall.sh
+
+.PHONY: uninstall-all
+uninstall-all: uninstall-powerline-fonts
+	find ~ -lname "$(CURDIR)/*" -delete
