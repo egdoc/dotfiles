@@ -88,6 +88,7 @@ powerline-fonts:
 install-powerline-fonts: powerline-fonts
 	$(CURDIR)/powerline-fonts/install.sh
 
+.PHONY: uninstall-powerline-fonts
 uninstall-powerline-fonts:
 	/bin/bash "$(CURDIR)/powerline-fonts/uninstall.sh"
 
