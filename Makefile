@@ -5,7 +5,6 @@ define symlink_dir
   rm -rf $(2) && ln -s $(1) $(2)
 endef
 
-
 .PHONY: vim
 vim:
 	ln -sf $(CURDIR)/vim/vimrc ~/.vimrc
@@ -51,7 +50,6 @@ nitrogen:
 .PHONY: gnome
 gnome:  baseconfig
 	dconf load / < $(CURDIR)/gnome/gnome-backup.conf
-	$(CURDIR)/gnome/iceberg.sh
 
 .PHONY: npm
 npm:
@@ -92,8 +90,8 @@ install-powerline-fonts: powerline-fonts
 
 uninstall-powerline-fonts:
 	/bin/bash "$(CURDIR)/powerline-fonts/uninstall.sh"
-	$(CURDIR)/powerline-fonts/uninstall.sh
 
-.PHONY: uninstall-all
-uninstall-all: uninstall-powerline-fonts
+.PHONY: unlink-all
+unlink-all:
 	find ~ -lname "$(CURDIR)/*" -delete
+
