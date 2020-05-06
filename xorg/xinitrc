@@ -21,7 +21,7 @@ if [[ "$(cat /sys/class/drm/card0/*HDMI*/status)" == "connected" ]]; then
 fi
 
 # Set root window color
-xsetroot -solid "#285577" &
+type -p nitrogen && nitrogen --restore || xsetroot -solid "#2e3440" &
 
 # Touchpad settings
 touchpad_id=$(xinput | grep -i touchpad | cut -f2 | tr -d "id=")
@@ -35,6 +35,9 @@ system-config-printer-applet &
 # Keyboard settings
 numlockx &
 setxkbmap -option terminate:ctrl_alt_bksp &
+
+# Lock screen when going to sleep
+xss-lock -- i3lock -c 2e3440  &
 
 # launch the window manager
 exec "${1:-i3}"

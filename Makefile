@@ -34,8 +34,12 @@ i3:
 	$(call symlink_dir,$(CURDIR)/i3/i3,~/.i3)
 	ln -sf $(CURDIR)/i3/i3status.conf ~/.i3status.conf
 
+.PHONY: readline
+readline:
+	ln -sf $(CURDIR)/readline/inputrc ~/.inputrc
+
 .PHONY: bash
-bash:
+bash: readline
 	ln -sf $(CURDIR)/bash/bash_profile ~/.bash_profile
 	ln -sf $(CURDIR)/bash/bashrc ~/.bashrc
 
@@ -56,7 +60,7 @@ npm:
 	ln -sf $(CURDIR)/npm/npmrc ~/.npmrc
 
 .PHONY: python
-python:
+python: readline
 	ln -sf $(CURDIR)/python/pylintrc ~/.pylintrc
 
 .PHONY: sakura
