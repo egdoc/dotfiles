@@ -2,7 +2,7 @@
 set $mod Mod4
 
 # default applications
-set $fm               thunar
+set $fm               pcmanfm
 set $browser          firefox
 set $calculator       mate-calc
 
@@ -22,8 +22,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Q kill
 
 # dmenu shortcuts
-bindsym $mod+shift+d exec i3-dmenu-desktop --dmenu="dmenu -i"
-bindsym $mod+d exec "dmenu_run"
+bindsym $mod+shift+p exec i3-dmenu-desktop --dmenu="dmenu -i"
+bindsym $mod+p exec "dmenu_run"
 
 # change focus
 bindsym $mod+j focus left
@@ -54,6 +54,9 @@ bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
+
+# Toggle split mode
+bindsym $mod+BackSpace split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
@@ -125,15 +128,10 @@ bindsym $mod+shift+minus bar mode dock
 bindsym $mod+minus bar mode invisible
 
 # shortcuts to launch applications
-bindsym Control+Mod1+Escape exec "sleep 0.2s && xkill"
 bindsym $mod+F1 exec $browser
 bindsym $mod+F2 exec $fm
-bindsym Print exec scrot -e 'mv $f ~/Pictures'
-bindsym --release shift+Print exec scrot -s -e 'mv $f ~/Pictures'
-
-# shortcuts to change keyboard map under X
-bindsym Control+Mod1+i exec "setxkbmap it"
-bindsym Control+Mod1+e exec "setxkbmap en_US"
+bindsym Print exec maim "/home/$USER/Pictures/$(date)"
+bindsym Shift+Print exec maim --select "/home/$USER/Pictures/$(date)"
 
 # applications specific settings
 for_window [class="^.*"] border normal
@@ -150,14 +148,11 @@ for_window [class="File-roller"] floating enable
 # XF86 shortcuts
 bindsym XF86AudioRaiseVolume exec "pactl -- set-sink-volume `pactl list short sinks | grep RUNNING | cut -f1` +5%"
 bindsym XF86AudioLowerVolume exec "pactl -- set-sink-volume `pactl list short sinks | grep RUNNING | cut -f1` -5%"
-bindsym XF86AudioMute exec "pactl -- set-sink-mute `pactl list short sinks | grep RUNNING | cut -f1` toggle"
-bindsym XF86Calculator exec $calculator
-bindsym --release XF86ScreenSaver exec slock
-bindsym XF86Mail exec "i3-sensible-terminal -title  mutt -e mutt"
-bindsym XF86WWW exec $browser
+bindsym XF86AudioMute        exec "pactl -- set-sink-mute `pactl list short sinks | grep RUNNING | cut -f1` toggle"
+bindsym XF86Calculator       exec $calculator
 
 # Alternatives in case XF86 shortcuts are not available
-bindsym Control+Mod1+l --release exec slock
+bindsym Control+Mod1+l --release exec i3lock -c 2e3440
 bindsym Control+Mod1+j exec eject
 
 # back and forth
@@ -193,7 +188,7 @@ mode "resize" {
 # system mode: to easily shutdown,reboot,suspend or hibernate
 set $mode_system System: (l) lock (e) logout (s) suspend (r) reboot (p) poweroff
 mode "$mode_system" {
-  bindsym --release l exec --no-startup-id slock
+  bindsym --release l exec --no-startup-id i3lock -c 2e3440
   bindsym e exec --no-startup-id "i3-msg exit", mode "default"
   bindsym s exec --no-startup-id "systemctl suspend", mode "default"
   bindsym r exec --no-startup-id "systemctl reboot", mode "default"

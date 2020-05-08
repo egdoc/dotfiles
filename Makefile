@@ -34,6 +34,10 @@ i3:
 	$(call symlink_dir,$(CURDIR)/i3/i3,~/.i3)
 	ln -sf $(CURDIR)/i3/i3status.conf ~/.i3status.conf
 
+.PHONY: compton
+compton:
+	ln -sf $(CURDIR)/compton/compton.conf ~/.config/compton.conf
+
 .PHONY: readline
 readline:
 	ln -sf $(CURDIR)/readline/inputrc ~/.inputrc
