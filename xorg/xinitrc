@@ -37,11 +37,8 @@ setxkbmap -option terminate:ctrl_alt_bksp &
 xss-lock -- i3lock -c 2e3440  &
 
 # Screensaver and dpms settings
-xset s 300 300 &
+xset s 0 0 &
 xset dpms 300 300 300 &
-
-# Start compositor
-compton &
 
 # launch the window manager (default to i3)
 exec "${1:-i3}"

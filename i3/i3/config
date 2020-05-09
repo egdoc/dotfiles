@@ -4,7 +4,7 @@ set $mod Mod4
 # default applications
 set $fm               pcmanfm
 set $browser          firefox
-set $calculator       mate-calc
+set $calculator       qalculate-gtk
 
 # set variable for fonts since we use the same on titlebar and i3bar
 set $font Terminus 8
@@ -137,6 +137,7 @@ bindsym Shift+Print exec maim --select "/home/$USER/Pictures/$(date)"
 for_window [class="^.*"] border normal
 for_window [class="code-oss"] border none
 for_window [class="Pinentry-gtk-2"] floating enable
+for_window [class="Qalculate-gtk"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Gpicview"] floating enable
 for_window [class="Viewnior"] floating enable
