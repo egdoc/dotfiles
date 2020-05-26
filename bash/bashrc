@@ -11,5 +11,6 @@ fi
 # Aliases
 alias wifiscan='nmcli device wifi list'
 alias dcompose-down="sudo docker-compose down --rmi all -v --remove-orphans"
+alias starti3="startx ~/.xinitrc i3"
 
 umask 022

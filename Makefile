@@ -24,15 +24,17 @@ xorg:
 	ln -sf $(CURDIR)/xorg/xinitrc ~/.xinitrc
 	ln -sf $(CURDIR)/xorg/Xresources ~/.Xresources
 
-.PHONY: xfce4-terminal
-xfce4-terminal:
-	ln -sf "$(CURDIR)/xfce4-terminal/terminalrc" ~/.config/xfce4/terminal/terminalrc
-	$(call symlink_dir,"$(CURDIR)/xfce4-terminal/colorschemes",~/.local/share/xfce4/terminal/colorschemes)
-
 .PHONY: i3
 i3:
-	$(call symlink_dir,$(CURDIR)/i3/i3,~/.i3)
-	ln -sf $(CURDIR)/i3/i3status.conf ~/.i3status.conf
+	$(call symlink_dir,$(CURDIR)/i3/i3,~/.config/i3)
+
+.PHONY: i3gaps
+i3gaps:
+	$(call symlink_dir,$(CURDIR)/i3gaps/i3,~/.config/i3)
+
+.PHONY: i3status
+i3status:
+	$(call symlink_dir,$(CURDIR)/i3status,~/.config/i3status)
 
 .PHONY: compton
 compton:
@@ -56,7 +58,7 @@ nitrogen:
 	$(call symlink_dir,$(CURDIR)/nitrogen,~/.config/nitrogen)
 
 .PHONY: gnome
-gnome:  baseconfig
+gnome:  baseconfig gtk3
 	dconf load / < $(CURDIR)/gnome/gnome-backup.conf
 
 .PHONY: npm
@@ -87,18 +89,11 @@ gtk3:
 baseconfig: vim bash python npm
 
 .PHONY: i3-standalone
-i3-standalone: baseconfig xorg i3 nitrogen
+i3-standalone: baseconfig xorg i3 i3status nitrogen dunst
 
-powerline-fonts:
-	git clone https://github.com/powerline/fonts $(CURDIR)/powerline-fonts
-
-.PHONY: install-powerline-fonts
-install-powerline-fonts: powerline-fonts
-	$(CURDIR)/powerline-fonts/install.sh
-
-.PHONY: uninstall-powerline-fonts
-uninstall-powerline-fonts:
-	/bin/bash "$(CURDIR)/powerline-fonts/uninstall.sh"
+.PHONY: lftp
+lftp:
+	ln -sf $(CURDIR)/lftp/rc ~/.lftprc
 
 .PHONY: unlink-all
 unlink-all:

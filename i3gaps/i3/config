@@ -134,7 +134,6 @@ bindsym Shift+Print exec maim --select "/home/$USER/Pictures/$(date)"
 # applications specific settings
 default_border pixel $border_pixels
 for_window [class="code-oss"] border none
-for_window [class="Firefox"] border none
 for_window [class="Pinentry-gtk-2"] floating enable
 for_window [class="Qalculate-gtk"] floating enable
 for_window [class="Arandr"] floating enable
@@ -144,6 +143,10 @@ for_window [class="Nitrogen"] floating enable
 for_window [class="System-config-printer.py"] floating enable
 for_window [class="guvcview"] floating enable
 for_window [class="File-roller"] floating enable
+
+# Gaps
+smart_gaps on
+gaps inner 7
 
 # XF86 shortcuts
 bindsym XF86AudioRaiseVolume exec "pactl -- set-sink-volume `pactl list short sinks | grep RUNNING | cut -f1` +10%"
@@ -223,7 +226,7 @@ client.urgent             #8F616A #8F616A     #ECEFF4 #8F616A    #8F616A
 
 # Start i3bar
 bar {
-  position bottom
+  position top
   status_command i3status
   font pango: $font
   tray_output primary

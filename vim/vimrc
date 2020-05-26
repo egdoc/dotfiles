@@ -47,6 +47,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
+" Airline
+let g:airline_powerline_fonts = 1
+
 " IndentLine
 let g:indentLine_char = "│"
 let g:indentLine_leadingSpaceEnabled = 1
