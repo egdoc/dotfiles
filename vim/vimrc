@@ -7,65 +7,11 @@
 
 
                                  "< Plugins >
+source ~/.vim/plugins.vim
 
-" Automagically install vim plug and listed plugins first time vim is launched
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin('~/.vim/plugged')
-"Syntax plugins
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'evidens/vim-twig'
-
-"Linting and autocomplete plugins
-Plug 'mattn/emmet-vim'
-Plug 'vim-syntastic/syntastic'
-
-"Git plugins
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-"Colorschemes
-Plug 'cocopon/iceberg.vim'
-Plug 'altercation/vim-colors-solarized'
-Plug 'lifepillar/vim-solarized8'
-Plug 'arcticicestudio/nord-vim'
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'ayu-theme/ayu-vim'
-Plug 'sickill/vim-monokai'
-
-"Misc plugins
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdcommenter'
-Plug 'Yggdroot/indentLine'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-call plug#end()
 
 " Airline
 let g:airline_powerline_fonts = 1
-
-" IndentLine
-let g:indentLine_char = "│"
-let g:indentLine_leadingSpaceEnabled = 1
-
-" Syntastic
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['pylint', 'flake8']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_php_checkers = ['phpcs']
-let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
-let g:syntastic_bash_checkers = ['shellcheck']
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
 
 " Gitgutter
 let gitgutter_max_signs = 500
@@ -79,62 +25,67 @@ autocmd BufWinEnter * silent! NERDTreeMirror
 
 
                              "< Editor settings >
-
-syntax on
-filetype plugin on
-filetype indent on
-set background=dark
 set nocompatible
-set title
-set number
-set ruler
-set autoread
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-set colorcolumn=80
-set listchars=trail:·,tab:▸\ ,eol:¬
-set nolist
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set shiftround
+syntax on
+filetype indent on
+filetype plugin on
+set undofile
 set autoindent
+set autoread
+set background=dark
+set clipboard=unnamedplus
+set colorcolumn=80,120
+set expandtab
+set fileformat=unix
+set foldlevel=99
+set foldmethod=indent
+set hlsearch
+set ignorecase
+set incsearch
+set list
+set listchars=trail:·,tab:▸\ ,eol:¬
+set modifiable
+set mouse=a
+set noswapfile
+set number
+set pastetoggle=<F2>
+set path+=**
+set ruler
+set shiftround
+set shiftwidth=2
+set showmatch
+set signcolumn=yes
+set smartcase
+set softtabstop=2
+set splitbelow
+set splitright
+set t_8b=[48;2;%lu;%lu;%lum
+set t_8f=[38;2;%lu;%lu;%lum
+set t_Cs=
+set textwidth=79
+set title
 set wildmenu
 set wildmode=longest:full,full
-set splitright
-set splitbelow
-set noswapfile
-set showmatch
-set fileformat=unix
-set textwidth=79
-set path+=**
-set foldmethod=indent
-set foldlevel=99
-set pastetoggle=<F2>
-set t_Cs=
-set t_8f=[38;2;%lu;%lu;%lum
-set t_8b=[48;2;%lu;%lu;%lum
-set modifiable
-set clipboard=unnamedplus
-set termguicolors
-colorscheme nord
 
-if has('gui')
-  set guioptions-=m
-  set guioptions-=T
-  set guioptions-=r
+if $TERM=~'linux'
+  "Running in TTY
+  set colorcolumn=
+  colorscheme elflord
+  let g:airline_disable_statusline = 1
+else
+  "Terminal emulator
+  if &t_Co == 256 && has('termguicolors')
+    set termguicolors
+    colorscheme nord
+  else
+    colorscheme elflord
+  endif
 endif
 
 " Autocommands
 augroup autorun
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-  autocmd BufWritePre * %s/\s\+$//e
   autocmd BufEnter * silent! lcd %:p:h
+  autocmd BufWritePre * %s/\s\+$//e
 augroup end
 
 
@@ -156,7 +107,7 @@ nnoremap <F12> :set spell! spelllang=en_us<CR>
 " Use space to fold a block of code
 nnoremap <space> za
 
-" Disable highlighted text
+" Unhighlighd text
 nnoremap <C-A> :noh<CR>
 
 " Maintain selection (re-select) when shifting left or right in visual mode
@@ -184,3 +135,7 @@ inoremap <right> <nop>
 vnoremap <right> <nop>
 
 command! Mktags !ctags -R .
+
+if filereadable(expand("~/.extra.vim"))
+  exe 'source' expand("~/.extra.vim")
+endif

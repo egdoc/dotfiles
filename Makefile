@@ -1,3 +1,6 @@
+VIM_PLUGINS = "ekalinin/Dockerfile.vim  evidens/vim-twig"
+
+
 # ln -sfn does automatically replace existing directories symlinks, but not
 # 'real' directories, therefore to be sure everything goes as expected we must
 # delete them first.
@@ -8,7 +11,12 @@ endef
 .PHONY: vim
 vim:
 	ln -sf $(CURDIR)/vim/vimrc ~/.vimrc
+	ln -sf $(CURDIR)/vim/gvimrc ~/.gvimrc
 	$(call symlink_dir,$(CURDIR)/vim/vim,~/.vim)
+
+.PHONY: vim-extra
+vim-extra: vim
+	ln -sf $(CURDIR)/vim/extra.vim ~/.extra.vim
 
 .PHONY: mutt
 mutt:
@@ -98,4 +106,3 @@ lftp:
 .PHONY: unlink-all
 unlink-all:
 	find ~ -lname "$(CURDIR)/*" -delete
-
