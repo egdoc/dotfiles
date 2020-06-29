@@ -1,4 +1,17 @@
-VIM_PLUGINS = "ekalinin/Dockerfile.vim  evidens/vim-twig"
+VIM_PLUGINS = ekalinin/Dockerfile.vim \
+  evidens/vim-twig \
+  mattn/emmet-vim \
+  tpope/vim-fugitive \
+  airblade/vim-gitgutter \
+  Xuyuanp/nerdtree-git-plugin \
+  cocopon/iceberg.vim \
+  altercation/vim-colors-solarized \
+  arcticicestudio/nord-vim \
+  scrooloose/nerdtree \
+  tpope/vim-surround \
+  scrooloose/nerdcommenter \
+  vim-airline/vim-airline \
+  vim-airline/vim-airline-themes
 
 
 # ln -sfn does automatically replace existing directories symlinks, but not
@@ -14,14 +27,22 @@ vim:
 	ln -sf $(CURDIR)/vim/gvimrc ~/.gvimrc
 	$(call symlink_dir,$(CURDIR)/vim/vim,~/.vim)
 
+	rm -rf ~/.vim/bundle \
+	  && mkdir -p ~/.vim/{autoload,bundle} \
+	  && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+	@for repo in $(VIM_PLUGINS); do \
+	  git -C ~/.vim/bundle clone https://github.com/$$repo; \
+	done
+
 .PHONY: vim-extra
 vim-extra: vim
-	ln -sf $(CURDIR)/vim/extra.vim ~/.extra.vim
+	git -C ~/.vim/bundle clone https://github.com/neoclide/coc.nvim -b release
 
 .PHONY: mutt
 mutt:
-	ln -sfn $(CURDIR)/mutt/mutt ~/.mutt
-	$(call symlink_dir,$(CURDIR)/mutt/muttrc,~/.muttrc)
+	ln -sfn $(CURDIR)/mutt/muttrc ~/.muttrc
+	$(call symlink_dir,$(CURDIR)/mutt/mutt,~/.mutt)
 
 .PHONY: tmux
 tmux:
@@ -65,10 +86,6 @@ dunst:
 nitrogen:
 	$(call symlink_dir,$(CURDIR)/nitrogen,~/.config/nitrogen)
 
-.PHONY: gnome
-gnome:  baseconfig gtk3
-	dconf load / < $(CURDIR)/gnome/gnome-backup.conf
-
 .PHONY: npm
 npm:
 	ln -sf $(CURDIR)/npm/npmrc ~/.npmrc
@@ -93,15 +110,25 @@ picard:
 gtk3:
 	$(call symlink_dir,$(CURDIR)/gtk3,~/.config/gtk-3.0)
 
-.PHONY: baseconfig
-baseconfig: vim bash python npm
-
-.PHONY: i3-standalone
-i3-standalone: baseconfig xorg i3 i3status nitrogen dunst
-
 .PHONY: lftp
 lftp:
 	ln -sf $(CURDIR)/lftp/rc ~/.lftprc
+
+.PHONY: baseconfig
+baseconfig: bash python
+
+.PHONY: workstation
+workstation: baseconfig vim-extra npm
+
+.PHONY: server
+server: baseconfig vim
+
+.PHONY: i3-standalone
+i3-standalone: workstation xorg i3 i3status nitrogen dunst
+
+.PHONY: gnome
+gnome:  workstation gtk3
+	dconf load / < $(CURDIR)/gnome/gnome-backup.conf
 
 .PHONY: unlink-all
 unlink-all:
