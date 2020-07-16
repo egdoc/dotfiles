@@ -93,6 +93,7 @@ npm:
 .PHONY: python
 python: readline
 	ln -sf $(CURDIR)/python/pylintrc ~/.pylintrc
+	pip install -r $(CURDIR)/python/packages.txt --user
 
 .PHONY: sakura
 sakura:
