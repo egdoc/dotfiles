@@ -13,6 +13,7 @@ VIM_PLUGINS = ekalinin/Dockerfile.vim \
   vim-airline/vim-airline \
   vim-airline/vim-airline-themes
 
+PIP = $(shell command -v pip3 2> /dev/null || echo pip)
 
 # ln -sfn does automatically replace existing directories symlinks, but not
 # 'real' directories, therefore to be sure everything goes as expected we must
@@ -20,6 +21,7 @@ VIM_PLUGINS = ekalinin/Dockerfile.vim \
 define symlink_dir
   rm -rf $(2) && ln -s $(1) $(2)
 endef
+
 
 .PHONY: vim
 vim:
@@ -93,7 +95,7 @@ npm:
 .PHONY: python
 python: readline
 	ln -sf $(CURDIR)/python/pylintrc ~/.pylintrc
-	pip install -r $(CURDIR)/python/packages.txt --user
+	$(PIP) install -r $(CURDIR)/python/packages.txt --user
 
 .PHONY: sakura
 sakura:
