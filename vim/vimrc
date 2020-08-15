@@ -26,6 +26,9 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeShowHidden=1
 autocmd BufWinEnter * silent! NERDTreeMirror
 
+" Ayu theme
+let ayucolor="mirage"
+
 
                              "< Editor settings >
 set nocompatible
@@ -78,7 +81,7 @@ else
   "Terminal emulator
   if &t_Co == 256 && has('termguicolors')
     set termguicolors
-    colorscheme nord
+    colorscheme ayu
   else
     colorscheme elflord
   endif

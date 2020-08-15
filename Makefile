@@ -7,6 +7,7 @@ VIM_PLUGINS = ekalinin/Dockerfile.vim \
   cocopon/iceberg.vim \
   altercation/vim-colors-solarized \
   arcticicestudio/nord-vim \
+  ayu-theme/ayu-vim \
   scrooloose/nerdtree \
   tpope/vim-surround \
   scrooloose/nerdcommenter \
