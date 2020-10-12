@@ -9,8 +9,6 @@ fi
 # export SYSTEMD_PAGER=
 
 # Aliases
-alias venv='virtualenv venv &> /dev/null && source venv/bin/activate'
-alias wifiscan='nmcli device wifi list'
 alias dcompose-down="sudo docker-compose down --rmi all -v --remove-orphans"
 
 umask 022

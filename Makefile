@@ -31,7 +31,7 @@ vim:
 	$(call symlink_dir,$(CURDIR)/vim/vim,~/.vim)
 
 	rm -rf ~/.vim/bundle \
-	  && mkdir -p ~/.vim/{autoload,bundle} \
+	  && mkdir -p ~/.vim/autoload ~/.vim/bundle \
 	  && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 	@for repo in $(VIM_PLUGINS); do \
