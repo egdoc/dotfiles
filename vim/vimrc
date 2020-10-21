@@ -6,68 +6,58 @@
 "       |___/
 
 
-
 execute pathogen#infect()
 execute pathogen#helptags()
 
                              "< Plugins settings >
 
-
 " Airline
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1      "Use powerline fonts
 
 " Gitgutter
-let gitgutter_max_signs = 500
+let gitgutter_max_signs = 500          "Maximum number of signs to use in a buffer
 
 " NERDTree
-let NERDTreeMinimalUI = 0
-let NERDTreeDirArrows = 1
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeShowHidden=1
-autocmd BufWinEnter * silent! NERDTreeMirror
+let NERDTreeAutoDeleteBuffer = 1        "Automatically remove a buffer when a file is deleted or renamed
+let NERDTreeShowHidden=1                "Display hidden files by default
+au BufWinEnter * silent! NERDTreeMirror "Use the same NERDTree for multiple tabs
 
 
                              "< Editor settings >
-set nocompatible
-syntax on
-filetype indent on
-filetype plugin on
-set autoindent
-set autoread
-set background=dark
-set clipboard=unnamedplus
-set colorcolumn=80,120
-set expandtab
-set fileformat=unix
-set foldlevel=99
-set foldmethod=indent
-set hlsearch
-set ignorecase
-set incsearch
-set list
-set listchars=trail:·,tab:▸\ ,eol:¬
-set modifiable
-set mouse=a
-set noswapfile
-set number
-set pastetoggle=<F2>
-set path+=**
-set ruler
-set shiftround
-set shiftwidth=2
-set showmatch
-set signcolumn=yes
-set smartcase
-set softtabstop=2
-set splitbelow
-set splitright
-set t_8b=[48;2;%lu;%lu;%lum
-set t_8f=[38;2;%lu;%lu;%lum
-set t_Cs=
-set textwidth=79
-set title
-set wildmenu
-set wildmode=longest:full,full
+
+filetype plugin on                      "Enable the plugin files for specific file types
+filetype indent on                      "Enable the loading of indent file for specific file types
+syntax on                               "Enable syntax highlightning
+set autoindent                          "Copy indent from current line when starting a new one
+set autoread                            "Re-read a file changed outside of vim
+set background=dark                     "Set background color
+set clipboard=unnamedplus               "Yank and paste selection without prepending "* to commands
+set expandtab                           "Replace tab with the appropiate number of spaces
+set fileformat=unix                     "Set the <EOL> of the current buffer to <NL>
+set hlsearch                            "Highlight all the matches
+set ignorecase                          "Ignore case in a pattern
+set smartcase                           "Override the ignorecase option if search pattern contains uppercase characters
+set incsearch                           "Search as you type
+set list                                "Show hidden characters
+set listchars=trail:·,tab:▸\ ,eol:$     "Characters to display in place of hidden ones
+set modifiable                          "Make buffer content modifiable
+set mouse=a                             "Enable the use of the mouse
+set noswapfile                          "Don't create swapfile
+set number                              "Display line number
+set pastetoggle=<F2>                    "Set the key to toggle 'paste' option
+set path+=**                            "List of directories searched when some commands are used (e.g. find)
+set ruler                               "Show line and column number of cursor position
+set softtabstop=2                       "Number of spaces to use for a <Tab>
+set shiftwidth=2                        "Number of spaces to use for each step of (auto)indent
+set textwidth=79                        "Maximum number of characters that can be inserted in line
+set shiftround                          "Round indent to multiple of 'shiftwidth'
+set showmatch                           "Show matching bracket
+set signcolumn=yes                      "Display the signcolumn
+set splitbelow                          "When using :split put new window below the current one
+set splitright                          "When using :vsplit put the new window at the right of the current one
+set title                               "Set the title of the window to filename [+=-]
+set wildmenu                            "Make command line completion operate in enhanced mode
+set wildmode=longest:full,full          "Wild menu mode
 
 if $TERM=~'linux'
   "Running in TTY
@@ -91,9 +81,6 @@ augroup autorun
   autocmd BufWritePre * %s/\s\+$//e
 augroup end
 
-
-                                 "< Mappings >
-
 let g:mapleader = ','
 
 " Sorting in visual mode
@@ -107,10 +94,7 @@ nnoremap <F7> :set cursorcolumn!<CR>
 nnoremap <F9> :NERDTreeToggle<CR>
 nnoremap <F12> :set spell! spelllang=en_us<CR>
 
-" Use space to fold a block of code
-nnoremap <space> za
-
-" Unhighlighd text
+"Unhighlighd text
 nnoremap <C-A> :noh<CR>
 
 " Maintain selection (re-select) when shifting left or right in visual mode
