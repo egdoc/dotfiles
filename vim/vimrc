@@ -22,6 +22,8 @@ let NERDTreeAutoDeleteBuffer = 1        "Automatically remove a buffer when a fi
 let NERDTreeShowHidden=1                "Display hidden files by default
 au BufWinEnter * silent! NERDTreeMirror "Use the same NERDTree for multiple tabs
 
+" Ayu colorscheme
+let ayucolor="mirage"                   "Light, dark or mirage
 
                              "< Editor settings >
 
@@ -32,6 +34,9 @@ set autoindent                          "Copy indent from current line when star
 set autoread                            "Re-read a file changed outside of vim
 set background=dark                     "Set background color
 set clipboard=unnamedplus               "Yank and paste selection without prepending "* to commands
+set tabstop=2                           "Set real TAB size
+set softtabstop=2                       "Number of spaces to use for a <Tab>
+set shiftwidth=2                        "Number of spaces to use for each step of (auto)indent and shift commands
 set expandtab                           "Replace tab with the appropiate number of spaces
 set fileformat=unix                     "Set the <EOL> of the current buffer to <NL>
 set hlsearch                            "Highlight all the matches
@@ -47,8 +52,6 @@ set number                              "Display line number
 set pastetoggle=<F2>                    "Set the key to toggle 'paste' option
 set path+=**                            "List of directories searched when some commands are used (e.g. find)
 set ruler                               "Show line and column number of cursor position
-set softtabstop=2                       "Number of spaces to use for a <Tab>
-set shiftwidth=2                        "Number of spaces to use for each step of (auto)indent
 set textwidth=79                        "Maximum number of characters that can be inserted in line
 set shiftround                          "Round indent to multiple of 'shiftwidth'
 set showmatch                           "Show matching bracket
@@ -68,7 +71,6 @@ else
   "Terminal emulator
   if &t_Co == 256 && has('termguicolors')
     set termguicolors
-    let ayucolor="light"
     colorscheme ayu
   else
     colorscheme elflord
@@ -86,18 +88,11 @@ let g:mapleader = ','
 " Sorting in visual mode
 vnoremap <Leader>s :sort<CR>
 
-" Automatically format text with set max width
-nnoremap <F6> :set textwidth=72<CR>gqj:set textwidth=79<CR>
-nnoremap <S-F6> :set textwidth=79<CR>gqj:set textwidth=79<CR>
-
 nnoremap <F7> :set cursorcolumn!<CR>
 nnoremap <F9> :NERDTreeToggle<CR>
 nnoremap <F12> :set spell! spelllang=en_us<CR>
 
-"Unhighlighd text
-nnoremap <C-A> :noh<CR>
-
-" Maintain selection (re-select) when shifting left or right in visual mode
+" Re-select when shifting left or right in visual mode
 vnoremap < <gv
 vnoremap > >gv
 

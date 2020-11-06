@@ -23,4 +23,14 @@
       </metadata>
     </info>
   </bookmark>
+  <bookmark href="sftp://egdoc@192.168.0.39/" added="2020-10-31T12:06:29.211409Z" modified="2020-11-06T07:56:29.698069Z" visited="2020-11-06T07:56:29.698062Z">
+    <title>/ on 192.168.0.39</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2020-11-06T07:56:29.698065Z" count="7"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
 </xbel>
