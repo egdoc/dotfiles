@@ -1,18 +1,11 @@
 VIM_PLUGINS = ekalinin/Dockerfile.vim \
   evidens/vim-twig \
-  mattn/emmet-vim \
-  tpope/vim-fugitive \
   airblade/vim-gitgutter \
   Xuyuanp/nerdtree-git-plugin \
-  cocopon/iceberg.vim \
   altercation/vim-colors-solarized \
-  arcticicestudio/nord-vim \
   ayu-theme/ayu-vim \
   scrooloose/nerdtree \
   tpope/vim-surround \
-  scrooloose/nerdcommenter \
-  vim-airline/vim-airline \
-  vim-airline/vim-airline-themes
 
 PIP = $(shell command -v pip3 2> /dev/null || echo pip)
 
@@ -22,7 +15,6 @@ PIP = $(shell command -v pip3 2> /dev/null || echo pip)
 define symlink_dir
   rm -rf $(2) && ln -s $(1) $(2)
 endef
-
 
 .PHONY: vim
 vim:
@@ -37,10 +29,6 @@ vim:
 	@for repo in $(VIM_PLUGINS); do \
 	  git -C ~/.vim/bundle clone https://github.com/$$repo; \
 	done
-
-.PHONY: vim-extra
-vim-extra: vim
-	git -C ~/.vim/bundle clone https://github.com/neoclide/coc.nvim -b release
 
 .PHONY: mutt
 mutt:
