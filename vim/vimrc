@@ -6,6 +6,7 @@
 "       |___/
 
 
+
 execute pathogen#infect()
 execute pathogen#helptags()
 
@@ -17,7 +18,7 @@ let gitgutter_max_signs = 500
 " NERDTree
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeShowHidden=1
-au BufWinEnter * silent! NERDTreeMirror
+autocmd BufWinEnter * silent! NERDTreeMirror
 
 " Ayu colorscheme
 let ayucolor="mirage"
