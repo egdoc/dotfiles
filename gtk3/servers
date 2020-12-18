@@ -13,22 +13,22 @@
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="sftp://egdoc@feanor.lan/" added="2020-10-17T06:43:20Z" modified="2020-10-17T06:43:20Z" visited="2020-10-17T06:43:20Z">
+  <bookmark href="sftp://egdoc@feanor.lan/" added="2020-10-17T06:43:20Z" modified="2020-12-03T07:29:43.777543Z" visited="2020-12-03T07:29:43.777533Z">
     <title>/ on feanor.lan</title>
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2020-10-17T06:43:20Z" count="1"/>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2020-12-03T07:29:43.777538Z" count="5"/>
         </bookmark:applications>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="sftp://egdoc@192.168.0.39/" added="2020-10-31T12:06:29.211409Z" modified="2020-11-12T12:02:44.920098Z" visited="2020-11-12T12:02:44.920091Z">
+  <bookmark href="sftp://egdoc@192.168.0.39/" added="2020-10-31T12:06:29.211409Z" modified="2020-11-25T14:17:16.976488Z" visited="2020-11-25T14:17:16.976479Z">
     <title>/ on 192.168.0.39</title>
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2020-11-12T12:02:44.920094Z" count="10"/>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2020-11-25T14:17:16.976484Z" count="13"/>
         </bookmark:applications>
       </metadata>
     </info>

@@ -20,6 +20,7 @@ endef
 vim:
 	ln -sf $(CURDIR)/vim/vimrc ~/.vimrc
 	ln -sf $(CURDIR)/vim/gvimrc ~/.gvimrc
+	ln -sf $(CURDIR)/xorg/Xmodmap ~/.Xmodmap
 	$(call symlink_dir,$(CURDIR)/vim/vim,~/.vim)
 
 	rm -rf ~/.vim/bundle \
@@ -110,7 +111,7 @@ lftp:
 baseconfig: bash python
 
 .PHONY: workstation
-workstation: baseconfig vim-extra npm
+workstation: baseconfig vim npm
 
 .PHONY: server
 server: baseconfig vim
