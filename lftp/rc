@@ -1,2 +1,3 @@
 set ftp:ssl-protect-data yes
 set ssl:verify-certificate no
+set bmk:save-passwords yes

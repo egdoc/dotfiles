@@ -9,6 +9,6 @@ fi
 # export SYSTEMD_PAGER=
 
 # Aliases
-alias dcompose-down="sudo docker-compose down --rmi all -v --remove-orphans"
+alias docker-compose-down="sudo docker-compose down --rmi all -v --remove-orphans"
 
 umask 022

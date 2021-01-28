@@ -1,12 +1,3 @@
-VIM_PLUGINS = ekalinin/Dockerfile.vim \
-  evidens/vim-twig \
-  airblade/vim-gitgutter \
-  Xuyuanp/nerdtree-git-plugin \
-  altercation/vim-colors-solarized \
-  ayu-theme/ayu-vim \
-  scrooloose/nerdtree \
-  tpope/vim-surround \
-
 PIP = $(shell command -v pip3 2> /dev/null || echo pip)
 
 # ln -sfn does automatically replace existing directories symlinks, but not
@@ -22,14 +13,6 @@ vim:
 	ln -sf $(CURDIR)/vim/gvimrc ~/.gvimrc
 	ln -sf $(CURDIR)/xorg/Xmodmap ~/.Xmodmap
 	$(call symlink_dir,$(CURDIR)/vim/vim,~/.vim)
-
-	rm -rf ~/.vim/bundle \
-	  && mkdir -p ~/.vim/autoload ~/.vim/bundle \
-	  && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
-	@for repo in $(VIM_PLUGINS); do \
-	  git -C ~/.vim/bundle clone https://github.com/$$repo; \
-	done
 
 .PHONY: mutt
 mutt:
