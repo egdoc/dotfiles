@@ -6,52 +6,70 @@
 "       |___/
 
 
-" Load plugins
-execute pathogen#infect()
-execute pathogen#helptags()
+" Maintainer:
+"     Egidio Docile
+"
+" Sections:
+"     -> General
+"     -> Backup
+"     -> Indentation
+"     -> Search
+"     -> Interface
+"     -> Misc
+"     -> Custom commands
 
-"Editor settings
-"------------------------------------------------------------------------------
+
+"[General]
 filetype plugin on
 filetype indent on
 syntax on
+set fileformat=unix
+
+"[Backup]
+set noswapfile
+
+"[Indentation]
 set autoindent
-set autoread
-set background=dark
-set clipboard=unnamedplus
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
-set fileformat=unix
+set shiftround
+
+"[Search]
 set hlsearch
 set ignorecase
 set smartcase
 set incsearch
-set list
-set listchars=trail:·,tab:▸\ ,eol:$
-set modifiable
-set mouse=a
-set noswapfile
+
+"[Interface]
+colorscheme elflord
+set background=dark
+set title
 set number
-set pastetoggle=<F2>
-set path+=**
 set ruler
 set textwidth=79
-set shiftround
 set showmatch
 set signcolumn=no
+set list
+set listchars=trail:·,tab:▸\ ,eol:$
+set mouse=a
+set pastetoggle=<F2>
 set splitbelow
 set splitright
-set title
+
+"[Misc]
+set autoread
+set clipboard=unnamedplus
+set modifiable
+set path+=**
 set wildmenu
 set wildmode=longest:full,full
-set termguicolors
-colorscheme ayu
 
 
-" Custom commands
-" -----------------------------------------------------------------------------
+
+                               " Custom commands
+
 command! Mktags !ctags -R .
 
 " Autocommands
@@ -61,12 +79,11 @@ augroup autorun
 augroup end
 
 
-"Custom mappings
-"------------------------------------------------------------------------------
+                               "Custom mappings
+
 let g:mapleader = ','
 
 nnoremap <F7> :set cursorcolumn!<CR>
-nnoremap <F9> :NERDTreeToggle<CR>
 nnoremap <F12> :set spell! spelllang=en_us<CR>
 
 " Re-select when shifting left or right in visual mode
@@ -93,12 +110,19 @@ nnoremap <right> <nop>
 inoremap <right> <nop>
 vnoremap <right> <nop>
 
-"Plugins settings
-"------------------------------------------------------------------------------
-source $HOME/.vim/gitgutter-settings.vim
-source $HOME/.vim/nerdtree-settings.vim
+                               "Plugins settings
+
+"Gigutter
+let gitgutter_max_signs = 500
+
+"NERDTree
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeShowHidden=1
+autocmd BufWinEnter * silent! NERDTreeMirror
+nnoremap <F9> :NERDTreeToggle<CR>
 
 "Source coc configuration if plugin is installed
+let g:coc_disable_startup_warning = 1
 if filereadable("~/.vim/bundle/coc.nvim/plugin/coc.vim")
   source $HOME/.vim/coc-settings.vim
 endif
