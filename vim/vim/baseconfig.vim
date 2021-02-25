@@ -110,19 +110,3 @@ nnoremap <right> <nop>
 inoremap <right> <nop>
 vnoremap <right> <nop>
 
-                               "Plugins settings
-
-"Gigutter
-let gitgutter_max_signs = 500
-
-"NERDTree
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeShowHidden=1
-autocmd BufWinEnter * silent! NERDTreeMirror
-nnoremap <F9> :NERDTreeToggle<CR>
-
-"Source coc configuration if plugin is installed
-let g:coc_disable_startup_warning = 1
-if filereadable("~/.vim/bundle/coc.nvim/plugin/coc.vim")
-  source $HOME/.vim/coc-settings.vim
-endif
