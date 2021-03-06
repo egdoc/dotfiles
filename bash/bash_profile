@@ -1,12 +1,5 @@
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-  . ~/.bashrc
-fi
+# Source ~/.profile
+. "$HOME/.profile"
 
-# Environment variables
-export EDITOR="/usr/bin/vim"
-export VISUAL="/usr/bin/vim"
-export TERMINAL="/usr/bin/sakura"
-
-# Add local folders to PATH
-PATH=${PATH}:"${HOME}/.local/bin"
+# Get aliases and functions
+. "$HOME/.bashrc"

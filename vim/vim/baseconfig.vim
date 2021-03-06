@@ -43,8 +43,8 @@ set smartcase
 set incsearch
 
 "[Interface]
-colorscheme elflord
-set background=dark
+colorscheme default
+set background=light
 set title
 set number
 set ruler
@@ -67,20 +67,16 @@ set wildmenu
 set wildmode=longest:full,full
 
 
-
-                               " Custom commands
-
+"[Custom commands]
 command! Mktags !ctags -R .
 
-" Autocommands
 augroup autorun
   autocmd BufEnter * silent! lcd %:p:h
   autocmd BufWritePre * %s/\s\+$//e
 augroup end
 
 
-                               "Custom mappings
-
+"[Custom mappings]
 let g:mapleader = ','
 
 nnoremap <F7> :set cursorcolumn!<CR>

@@ -15,7 +15,7 @@ VIM_PLUGINS = https://github.com/ekalinin/Dockerfile.vim \
 define symlink_dir
   rm -rf $(2) && ln -s $(1) $(2)
 endef
-	
+
 .PHONY: vim
 vim:
 	$(call symlink_dir,$(CURDIR)/vim/vim,~/.vim)
@@ -67,8 +67,12 @@ compton:
 readline:
 	ln -sf $(CURDIR)/readline/inputrc ~/.inputrc
 
+.PHONY: shell
+shell:
+	ln -sf $(CURDIR)/shell/profile ~/.profile
+
 .PHONY: bash
-bash: readline
+bash: shell readline
 	ln -sf $(CURDIR)/bash/bash_profile ~/.bash_profile
 	ln -sf $(CURDIR)/bash/bashrc ~/.bashrc
 

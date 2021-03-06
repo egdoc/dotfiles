@@ -1,14 +1,36 @@
-# .bashrc
+# ~/.bashrc: executed by bash(1) for non-login shells.
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
+
+# History settings
+# -----------------------------------------------------------------------------
+
+# Append to the history file, don't overwrite it
+shopt -s histappend
+
+# Don't put duplicate lines or lines startings with space in the history
+HISTCONTROL=ignoreboth
+
+# Maximum Number of history lines stored in memory
+HISTSIZE=1000
+
+# Maximum Number of history lines stored in the history file
+HISTFILESIZE=2000
+
 
 # Aliases
+# -----------------------------------------------------------------------------
+
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
 alias docker-compose-down="sudo docker-compose down --rmi all -v --remove-orphans"
 
 umask 022

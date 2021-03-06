@@ -1,0 +1,12 @@
+# ~/.profile: executed by the command interpreter for login shells.
+
+# Add local folders to PATH
+for i in "${HOME}/bin" "${HOME}/.local/bin"; do
+  if [ -d "${i}" ]; then
+    PATH="$PATH:${i}"
+  fi
+done
+
+# Environment variables
+export EDITOR="vim"
+export VISUAL="vim"

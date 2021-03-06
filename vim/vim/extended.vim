@@ -27,6 +27,7 @@ set signcolumn=yes
 set cmdheight=2
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 set termguicolors
+let ayucolor="light"
 colorscheme ayu
 "
 "[Gitgutter]
