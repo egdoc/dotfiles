@@ -31,6 +31,4 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-alias docker-compose-down="sudo docker-compose down --rmi all -v --remove-orphans"
-
 umask 022

@@ -43,17 +43,9 @@ mutt:
 tmux:
 	ln -sf $(CURDIR)/tmux/tmux.conf ~/.tmux.conf
 
-.PHONY: xorg
-xorg:
-	ln -sf $(CURDIR)/xorg/xinitrc ~/.xinitrc ln -sf $(CURDIR)/xorg/Xresources ~/.Xresources
-
 .PHONY: i3
 i3:
 	$(call symlink_dir,$(CURDIR)/i3/i3,~/.config/i3)
-
-.PHONY: i3gaps
-i3gaps:
-	$(call symlink_dir,$(CURDIR)/i3gaps/i3,~/.config/i3)
 
 .PHONY: i3status
 i3status:
@@ -63,18 +55,19 @@ i3status:
 compton:
 	ln -sf $(CURDIR)/compton/compton.conf ~/.config/compton.conf
 
-.PHONY: readline
-readline:
-	ln -sf $(CURDIR)/readline/inputrc ~/.inputrc
-
 .PHONY: shell
 shell:
 	ln -sf $(CURDIR)/shell/profile ~/.profile
 
+.PHONY: readline
+readline:
+	ln -sf $(CURDIR)/readline/inputrc ~/.inputrc
+
 .PHONY: bash
-bash: shell readline
+bash: shell
 	ln -sf $(CURDIR)/bash/bash_profile ~/.bash_profile
 	ln -sf $(CURDIR)/bash/bashrc ~/.bashrc
+	ln -sf $(CURDIR)/bash/bash_aliases ~/.bash_aliases
 
 .PHONY: dunst
 dunst:
@@ -84,12 +77,12 @@ dunst:
 nitrogen:
 	$(call symlink_dir,$(CURDIR)/nitrogen,~/.config/nitrogen)
 
-.PHONY: npm
-npm:
+.PHONY: npm-setup
+npm-setup:
 	ln -sf $(CURDIR)/npm/npmrc ~/.npmrc
 
-.PHONY: python
-python: readline
+.PHONY: python-setup
+python-setup:
 	ln -sf $(CURDIR)/python/pylintrc ~/.pylintrc
 	$(PIP) install -r $(CURDIR)/python/packages.txt --user
 
@@ -113,21 +106,14 @@ gtk3:
 lftp:
 	ln -sf $(CURDIR)/lftp/rc ~/.lftprc
 
-.PHONY: baseconfig
-baseconfig: bash python
-
-.PHONY: workstation
-workstation: baseconfig vim npm
-
-.PHONY: server
-server: baseconfig vim
+.PHONY: gnome
+gnome:
+	dconf load / < $(CURDIR)/gnome/gnome-backup.conf
 
 .PHONY: i3-standalone
-i3-standalone: workstation xorg i3 i3status nitrogen dunst
-
-.PHONY: gnome
-gnome:  workstation gtk3
-	dconf load / < $(CURDIR)/gnome/gnome-backup.conf
+i3-standalone: i3 i3status
+	ln -sf $(CURDIR)/xorg/xinitrc ~/.xinitrc
+	ln -sf $(CURDIR)/xorg/Xresources ~/.Xresources
 
 .PHONY: unlink-all
 unlink-all:
