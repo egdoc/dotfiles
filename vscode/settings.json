@@ -1,0 +1,76 @@
+{
+    "breadcrumbs.enabled": true,
+    "editor.smoothScrolling": true,
+    "editor.rulers": [80],
+    "editor.trimAutoWhitespace": true,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "none",
+    "editor.renderIndentGuides": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": false,
+    "files.trimFinalNewlines": true,
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "window.restoreFullscreen": true,
+    "window.newWindowDimensions": "maximized",
+    "window.titleBarStyle": "native",
+    "python.autoComplete.addBrackets": true,
+    "python.jediEnabled": false,
+    "python.linting.pylintArgs": ["--load-plugins=pylint_django"],
+    "python.venvFolders": ["venv", "virtualenv"],
+
+    "[plaintext]": {
+        "editor.rulers": []
+    },
+
+    "[html]": {
+        "editor.rulers": [],
+        "editor.renderIndentGuides": true
+    },
+
+    "[twig]": {
+        "editor.rulers": [],
+        "editor.renderIndentGuides": true
+    },
+
+    "[php]": {
+        "editor.tabSize": 4
+    },
+
+    "[json]": {
+        "editor.rulers": [],
+        "editor.wordWrap": "off"
+    },
+
+    "[python]": {
+        "editor.tabSize": 4
+    },
+
+    "[makefile]": {
+        "editor.rulers": [],
+        "editor.insertSpaces": false,
+        "editor.tabSize": 8
+    },
+
+    "[c]": {
+        "editor.tabSize": 8
+    },
+
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Ayu Mirage Bordered",
+    "sync.autoUpload": false,
+    "sync.gist": "9b5082cf7c85538ea86b7c977ef44cb6",
+    "workbench.statusBar.visible": true,
+    "window.menuBarVisibility": "default",
+    "clangd.path": "/home/egdoc/.config/Code - OSS/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/10.0.0/clangd_10.0.0/bin/clangd",
+    "files.associations": {
+        "*.cfg": "plaintext"
+    },
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+    ],
+}

@@ -9,6 +9,26 @@ VIM_PLUGINS = https://github.com/ekalinin/Dockerfile.vim \
 	https://github.com/vim-airline/vim-airline \
 	https://github.com/vim-airline/vim-airline-themes
 
+VSCODE_EXTENSIONS = arcticicestudio.nord-visual-studio-code \
+	ban.spellright \
+	cocopon.iceberg-theme \
+	dbaeumer.vscode-eslint \
+	dracula-theme.theme-dracula \
+	felixfbecker.php-debug \
+	felixfbecker.php-pack \
+	janisdd.vscode-edit-csv \
+	llvm-vecode-extensions.vscode-clangd \
+	ms-azuretools.vscode-docker \
+	ms-python.python \
+	ms-toolsai.jupyter \
+	ms-vscode.vscode-typescript-tslint-plugin \
+	qub.qub-xml-vscode \
+	redhat.vscode-yaml \
+	teabyii.ayu \
+	timonwong.shellcheck \
+	whatwedo.twig
+
+
 # ln -sfn does automatically replace existing directories symlinks, but not
 # 'real' directories, therefore to be sure everything goes as expected we must
 # delete them first.
@@ -114,6 +134,18 @@ gnome:
 i3-standalone: i3 i3status
 	ln -sf $(CURDIR)/xorg/xinitrc ~/.xinitrc
 	ln -sf $(CURDIR)/xorg/Xresources ~/.Xresources
+
+.PHONY: vscode
+vscode:
+	rm -rf ~/.vscode
+	@for extension in $(VSCODE_EXTENSIONS); do \
+		code --install-extension $$extension; \
+	done
+
+	rm -rf ~/.config/Code
+	mkdir -p ~/.config/Code/User
+	ln -sf $(CURDIR)/vscode/snippets ~/.config/Code/User/snippets
+	ln -sf $(CURDIR)/vscode/settings.json ~/.config/Code/User/settings.json
 
 .PHONY: unlink-all
 unlink-all:
