@@ -52,7 +52,7 @@ set textwidth=79
 set showmatch
 set signcolumn=no
 set list
-set listchars=trail:·,tab:▸\ ,eol:$
+set listchars=trail:·,tab:▸\
 set mouse=a
 set pastetoggle=<F2>
 set splitbelow

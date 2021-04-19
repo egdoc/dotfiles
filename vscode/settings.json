@@ -22,8 +22,8 @@
     "python.linting.pylintArgs": ["--load-plugins=pylint_django"],
     "python.venvFolders": ["venv", "virtualenv"],
 
-    "[plaintext]": {
-        "editor.rulers": []
+    "[c]": {
+        "editor.tabSize": 8
     },
 
     "[html]": {
@@ -31,22 +31,9 @@
         "editor.renderIndentGuides": true
     },
 
-    "[twig]": {
-        "editor.rulers": [],
-        "editor.renderIndentGuides": true
-    },
-
-    "[php]": {
-        "editor.tabSize": 4
-    },
-
     "[json]": {
         "editor.rulers": [],
         "editor.wordWrap": "off"
-    },
-
-    "[python]": {
-        "editor.tabSize": 4
     },
 
     "[makefile]": {
@@ -55,12 +42,30 @@
         "editor.tabSize": 8
     },
 
-    "[c]": {
-        "editor.tabSize": 8
+    "[markdown]": {
+        "editor.wordWrap": "off",
+        "editor.quickSuggestions": false
+    },
+
+    "[php]": {
+        "editor.tabSize": 4
+    },
+
+    "[plaintext]": {
+        "editor.rulers": []
+    },
+
+    "[python]": {
+        "editor.tabSize": 4
+    },
+
+    "[twig]": {
+        "editor.rulers": [],
+        "editor.renderIndentGuides": true
     },
 
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "Ayu Mirage Bordered",
+    "workbench.colorTheme": "Ayu Mirage",
     "sync.autoUpload": false,
     "sync.gist": "9b5082cf7c85538ea86b7c977ef44cb6",
     "workbench.statusBar.visible": true,
