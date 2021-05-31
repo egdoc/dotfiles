@@ -4,7 +4,7 @@ VIM_PLUGINS = https://github.com/ekalinin/Dockerfile.vim \
 	https://github.com/scrooloose/nerdtree \
 	https://github.com/tpope/vim-surround \
 	https://github.com/ayu-theme/ayu-vim \
-	https://github.com/arcticicestudio/nord-vim \
+	https://github.com/arcticicestudio/nord-vim
 
 VIM_PLUGINS_EXTRA = https://github.com/evidens/vim-twig \
 	https://github.com/neoclide/coc.nvim \
@@ -40,20 +40,20 @@ endef
 
 .PHONY: vim
 vim:
+	rm -rf ~/.vim/bundle \
+	  && mkdir -p ~/.vim/autoload ~/.vim/bundle \
+	  && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
 	$(call symlink_dir,$(CURDIR)/vim/vim,~/.vim)
 	ln -sf $(CURDIR)/vim/vim/baseconfig.vim ~/.vimrc
 	ln -sf $(CURDIR)/xorg/Xmodmap ~/.Xmodmap
 
 	@for repo in $(VIM_PLUGINS); do \
-		git -C ~/.vim/bundle clone --depth=1 $$repo \
+		git -C ~/.vim/bundle clone --depth=1 $$repo; \
 	done
 
 .PHONY: vim-workstation
 vim-workstation: vim
-	rm -rf ~/.vim/bundle \
-	  && mkdir -p ~/.vim/autoload ~/.vim/bundle \
-	  && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
 	@for repo in $(VIM_PLUGINS_EXTRA); do \
 	  git -C ~/.vim/bundle clone --depth=1 $$repo; \
 	done

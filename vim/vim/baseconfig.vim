@@ -10,6 +10,7 @@
 "     Egidio Docile
 "
 " Sections:
+"     -> Plugins loading
 "     -> General
 "     -> Backup
 "     -> Indentation
@@ -18,6 +19,9 @@
 "     -> Misc
 "     -> Custom commands
 
+"[Plugins loading]
+execute pathogen#infect()
+execute pathogen#helptags()
 
 "[General]
 filetype plugin on

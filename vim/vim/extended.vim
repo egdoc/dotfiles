@@ -2,7 +2,6 @@
 "     Egidio Docile
 "
 " Sections:
-"     -> Plugins loading
 "     -> General
 "     -> Interface
 "     -> Gitgutter
@@ -11,10 +10,6 @@
 "
 "
 source $HOME/.vim/baseconfig.vim
-
-"[Plugins loading]
-execute pathogen#infect()
-execute pathogen#helptags()
 
 "[General]
 set hidden
