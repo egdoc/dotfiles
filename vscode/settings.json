@@ -1,34 +1,43 @@
 {
     "breadcrumbs.enabled": true,
-    "editor.smoothScrolling": true,
-    "editor.rulers": [80],
-    "editor.trimAutoWhitespace": true,
-    "editor.minimap.enabled": false,
-    "editor.renderWhitespace": "none",
-    "editor.renderIndentGuides": false,
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
     "editor.detectIndentation": true,
-    "files.trimTrailingWhitespace": true,
+    "editor.insertSpaces": true,
+    "editor.minimap.enabled": false,
+    "editor.renderIndentGuides": false,
+    "editor.renderWhitespace": "none",
+    "editor.rulers": [80],
+    "editor.smoothScrolling": true,
+    "editor.tabSize": 2,
+    "editor.trimAutoWhitespace": true,
+    "files.associations": { "*.cfg": "plaintext" },
     "files.insertFinalNewline": false,
     "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "python.autoComplete.addBrackets": true,
+    "python.languageServer": "Microsoft",
+    "python.linting.pylintArgs": ["--load-plugins=pylint_django"],
+    "python.pythonPath": "/usr/bin/python",
+    "python.venvFolders": ["venv", "virtualenv"],
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
-    "window.restoreFullscreen": true,
+    "window.menuBarVisibility": "default",
     "window.newWindowDimensions": "maximized",
+    "window.restoreFullscreen": true,
     "window.titleBarStyle": "native",
-    "python.autoComplete.addBrackets": true,
-    "python.jediEnabled": false,
-    "python.linting.pylintArgs": ["--load-plugins=pylint_django"],
-    "python.venvFolders": ["venv", "virtualenv"],
+    "workbench.colorTheme": "Ayu Mirage",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.statusBar.visible": true,
+
+    "spellright.documentTypes": ["markdown", "latex" ],
+    "spellright.language": [ "en_US" ],
 
     "[c]": {
         "editor.tabSize": 8
     },
 
     "[html]": {
-        "editor.rulers": [],
-        "editor.renderIndentGuides": true
+        "editor.renderIndentGuides": true,
+        "editor.rulers": []
     },
 
     "[json]": {
@@ -37,8 +46,8 @@
     },
 
     "[makefile]": {
-        "editor.rulers": [],
         "editor.insertSpaces": false,
+        "editor.rulers": [],
         "editor.tabSize": 8
     },
 
@@ -62,20 +71,5 @@
     "[twig]": {
         "editor.rulers": [],
         "editor.renderIndentGuides": true
-    },
-
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "Ayu Mirage",
-    "sync.autoUpload": false,
-    "sync.gist": "9b5082cf7c85538ea86b7c977ef44cb6",
-    "workbench.statusBar.visible": true,
-    "window.menuBarVisibility": "default",
-    "clangd.path": "/home/egdoc/.config/Code - OSS/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/10.0.0/clangd_10.0.0/bin/clangd",
-    "files.associations": {
-        "*.cfg": "plaintext"
-    },
-    "spellright.documentTypes": [
-        "markdown",
-        "latex",
-    ],
+    }
 }

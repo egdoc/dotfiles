@@ -1,8 +1,9 @@
-vim/vim/bundle
-vim/vim/plugged
-vim/vim/autoload
-vim/vim/.netrwhist
+*un~
 mutt/mutt/cache/**
 mutt/mutt/certificates/**
 powerline-fonts
-*un~
+smplayer/file_settings
+vim/vim/.netrwhist
+vim/vim/autoload
+vim/vim/bundle
+vim/vim/plugged
