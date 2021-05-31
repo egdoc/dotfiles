@@ -43,8 +43,13 @@ set smartcase
 set incsearch
 
 "[Interface]
-colorscheme default
-set background=light
+if has('termguicolors')
+  set termguicolors
+  colorscheme nord
+else
+  colorscheme default
+endif
+
 set title
 set number
 set ruler

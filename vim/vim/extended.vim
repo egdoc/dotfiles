@@ -2,7 +2,6 @@
 "     Egidio Docile
 "
 " Sections:
-"     -> Source baseconfig
 "     -> Plugins loading
 "     -> General
 "     -> Interface
@@ -11,7 +10,6 @@
 "     -> Coc
 "
 "
-"[Source baseconfig]
 source $HOME/.vim/baseconfig.vim
 
 "[Plugins loading]
@@ -26,9 +24,6 @@ set updatetime=300
 set signcolumn=yes
 set cmdheight=2
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-set termguicolors
-let ayucolor="mirage"
-colorscheme ayu
 "
 "[Gitgutter]
 let gitgutter_max_signs = 500
@@ -81,3 +76,4 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
+

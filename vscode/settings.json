@@ -24,7 +24,7 @@
     "window.newWindowDimensions": "maximized",
     "window.restoreFullscreen": true,
     "window.titleBarStyle": "native",
-    "workbench.colorTheme": "Ayu Mirage",
+    "workbench.colorTheme": "Nord",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.statusBar.visible": true,
 
