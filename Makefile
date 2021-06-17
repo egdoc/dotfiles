@@ -9,7 +9,9 @@ VIM_PLUGINS = https://github.com/ekalinin/Dockerfile.vim \
 VIM_PLUGINS_EXTRA = https://github.com/evidens/vim-twig \
 	https://github.com/neoclide/coc.nvim \
 	https://github.com/vim-airline/vim-airline \
-	https://github.com/vim-airline/vim-airline-themes
+	https://github.com/vim-airline/vim-airline-themes \
+	https://github.com/iamcco/markdown-preview.nvim \
+	https://github.com/mechatroner/rainbow_csv
 
 VSCODE_EXTENSIONS = arcticicestudio.nord-visual-studio-code \
 	ban.spellright \
@@ -40,11 +42,12 @@ endef
 
 .PHONY: vim
 vim:
-	rm -rf ~/.vim/bundle \
-	  && mkdir -p ~/.vim/autoload ~/.vim/bundle \
-	  && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+	rm -rf $(CURDIR)/vim/vim/{autoload,bundle}
 
 	$(call symlink_dir,$(CURDIR)/vim/vim,~/.vim)
+	mkdir -p ~/.vim/autoload ~/.vim/bundle \
+		&& curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
 	ln -sf $(CURDIR)/vim/vim/baseconfig.vim ~/.vimrc
 	ln -sf $(CURDIR)/xorg/Xmodmap ~/.Xmodmap
 

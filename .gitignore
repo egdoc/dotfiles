@@ -7,3 +7,7 @@ vim/vim/.netrwhist
 vim/vim/autoload
 vim/vim/bundle
 vim/vim/plugged
+picard/MusicBrainz/*
+!picard/MusicBrainz/Picard
+!picard/MusicBrainz/Picard.ini
+
