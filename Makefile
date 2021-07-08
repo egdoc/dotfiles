@@ -4,14 +4,14 @@ VIM_PLUGINS = https://github.com/ekalinin/Dockerfile.vim \
 	https://github.com/scrooloose/nerdtree \
 	https://github.com/tpope/vim-surround \
 	https://github.com/ayu-theme/ayu-vim \
-	https://github.com/arcticicestudio/nord-vim
+	https://github.com/arcticicestudio/nord-vim \
+	https://github.com/evidens/vim-twig \
+	https://github.com/mechatroner/rainbow_csv
 
-VIM_PLUGINS_EXTRA = https://github.com/evidens/vim-twig \
-	https://github.com/neoclide/coc.nvim \
+VIM_PLUGINS_EXTRA = https://github.com/neoclide/coc.nvim \
 	https://github.com/vim-airline/vim-airline \
 	https://github.com/vim-airline/vim-airline-themes \
 	https://github.com/iamcco/markdown-preview.nvim \
-	https://github.com/mechatroner/rainbow_csv
 
 VSCODE_EXTENSIONS = arcticicestudio.nord-visual-studio-code \
 	ban.spellright \

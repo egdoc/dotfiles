@@ -1,35 +1,16 @@
-" Maintainer:
-"     Egidio Docile
-"
-" Sections:
-"     -> General
-"     -> Interface
-"     -> Gitgutter
-"     -> NERDTree
-"     -> Coc
-"
-"
 source $HOME/.vim/baseconfig.vim
 
-"[General]
+" PLUGIN SETTINGS
+" ---------------------------------------------------------
+"
+" Coc
+"
+set cmdheight=2
 set hidden
+set signcolumn=yes
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 set updatetime=300
 
-"[Interface]
-set signcolumn=yes
-set cmdheight=2
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-"
-"[Gitgutter]
-let gitgutter_max_signs = 500
-
-"[NERDTree]
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeShowHidden=1
-autocmd BufWinEnter * silent! NERDTreeMirror
-nnoremap <F9> :NERDTreeToggle<CR>
-
-"[Coc]
 let g:coc_global_extensions=[
   \'coc-json',
   \'coc-python',
@@ -72,8 +53,9 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
 
-
-"[ markdown-preview ]
+"
+" markdown-preview
+"
 if &filetype == 'markdown'
   call mkdp#util#install()
 endif
@@ -93,34 +75,9 @@ let g:mkdp_auto_close = 1
 " default: 0
 let g:mkdp_refresh_slow = 0
 
-" set to 1, the MarkdownPreview command can be use for all files,
-" by default it can be use in markdown file
-" default: 0
-let g:mkdp_command_for_global = 0
-
-" set to 1, preview server available to others in your network
-" by default, the server listens on localhost (127.0.0.1)
-" default: 0
-let g:mkdp_open_to_the_world = 0
-
-" use custom IP to open preview page
-" useful when you work in remote vim and preview on local browser
-" more detail see: https://github.com/iamcco/markdown-preview.nvim/pull/9
-" default empty
-let g:mkdp_open_ip = ''
-
 " specify browser to open preview page
 " default: ''
 let g:mkdp_browser = ''
-
-" set to 1, echo preview page url in command line when open preview page
-" default is 0
-let g:mkdp_echo_preview_url = 0
-
-" a custom vim function name to open preview page
-" this function will receive url as param
-" default is empty
-let g:mkdp_browserfunc = ''
 
 " options for markdown render
 " mkit: markdown-it options for render
@@ -149,14 +106,6 @@ let g:mkdp_preview_options = {
     \ 'content_editable': v:false,
     \ 'disable_filename': 0
     \ }
-
-" use a custom markdown style must be absolute path
-" like '/Users/username/markdown.css' or expand('~/markdown.css')
-let g:mkdp_markdown_css = ''
-
-" use a custom highlight style must absolute path
-" like '/Users/username/highlight.css' or expand('~/highlight.css')
-let g:mkdp_highlight_css = ''
 
 " use a custom port to start server or random for empty
 let g:mkdp_port = ''
