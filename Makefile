@@ -49,6 +49,7 @@ vim:
 		&& curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 	ln -sf $(CURDIR)/vim/vim/baseconfig.vim ~/.vimrc
+	ln -sf $(CURDIR)/vim/gvimrc ~/.gvimrc
 	ln -sf $(CURDIR)/xorg/Xmodmap ~/.Xmodmap
 
 	@for repo in $(VIM_PLUGINS); do \
