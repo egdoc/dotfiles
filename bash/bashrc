@@ -31,4 +31,24 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+
+# Functions
+# -----------------------------------------------------------------------------
+
+# This function relies on the use of the pass password manager in
+# order to avoid storing sensitive information on lftp bookmark
+# file. For it to work ftp information should be stored as
+# name/ftp/{login,url,password} format in pass.
+#
+# $1 - The name used to store ftp information in pass
+plftp() {
+  pass_name="$1"
+  login="$(urlencode "$(pass "${pass_name}/ftp/login")")"
+  url="$(pass "${pass_name}/ftp/url")"
+  password="$(urlencode "$(pass "${pass_name}/ftp/password")")"
+
+  # Invoke lftp with information
+  lftp "${login}:${password}@${url}"
+}
+
 umask 022
