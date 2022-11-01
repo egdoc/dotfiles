@@ -1,0 +1,3 @@
+application/pdf; zathura %s
+application/msword; libreoffice --writer %s
+image/*; feh -F %s

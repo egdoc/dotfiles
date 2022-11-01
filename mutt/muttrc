@@ -1,0 +1,126 @@
+# Source default account configuration
+source "gpg2 -dq $HOME/.password-store/mutt/main.gpg |"
+
+# +----------------------------------------------------------------------------+
+# |General setting                                                             |
+# +----------------------------------------------------------------------------+
+
+# Require that all connections to remote servers be encrypted and attempt to
+# use it even if the server doesn't advertise the capability. Abort if connection
+# fails.
+set ssl_force_tls = yes
+
+# Abort composition of the message if no subject is given
+set abort_nosubject = ask-yes
+
+# Check for updates if no user input is received after a timeout of 10 seconds
+set timeout = 10
+
+# Mutt scans for update on every input received by the user. To limit the number
+# of scans on high keyboard activity, we set the minimum time between 2 update
+# scans
+set mail_check = 60
+
+# Beep whenever a new mail is notified
+set beep_new = yes
+
+# Specify the filename containing the signature to be appended to all outgoing
+# messages. If the filename ends with a pipe, it is assumed that filename is
+# a shell command and input should be read from its standard output
+set signature = "~/.config/mutt/signature"
+
+# Whether or not copies of outgoing messages should be saved. By default
+# sent email are stored on the file specified with `$record` (default is
+# ~/sent). Since gmail has this functionality built-in we disable copy to
+# avoid local copies to be stored.
+set copy = no
+
+# Specify how to sort messages in the "index" menu (Newest mail first)
+set sort = "reverse-date-received"
+
+
+# + ---------------------------------------------------------------------------+
+# | Local folders                                                              |
+# + ---------------------------------------------------------------------------+
+
+# Which files to consult for MIME bodies
+set mailcap_path = ~/.config/mutt/mailcap
+
+# Where to store trusted certificates
+set certificate_file = ~/.config/mutt/certificates
+
+# +----------------------------------------------------------------------------+
+# | Gpg settings                                                               |
+# +----------------------------------------------------------------------------+
+
+# If set mutt expects a gpg-agent process to handle private key passphrase prompts
+set pgp_use_gpg_agent = yes
+
+# Number of seconds after which a cached passphrase will expire if not used
+set pgp_timeout = 3600
+
+# Causes mutt to always attempt to sign outgoing messages
+set crypt_autosign = no
+
+# Automatically encrypt replies to messages which are encrypted
+set crypt_replyencrypt = yes
+
+# The command used to decode application/pgp attachments
+set pgp_decode_command="gpg --status-fd=2 %?p?--passphrase-fd 0? --no-verbose --quiet --batch --output - %f"
+
+# The command used to verify key information from the key selection menu
+set pgp_verify_command="gpg --status-fd=2 --no-verbose --quiet --batch --output - --verify %s %f"
+
+# The command used to decrypt a pgp encrypted message
+set pgp_decrypt_command="gpg --status-fd=2 %?p?--passphrase-fd 0? --no-verbose --quiet --batch --output - %f"
+
+# The command used to create the detached pgp signature for a multipart/signed PGP/MIME body part
+set pgp_sign_command="gpg --no-verbose --batch --quiet --output - %?p?--passphrase-fd 0? --armor --detach-sign --textmode %?a?-u %a? %f"
+
+# The command used to encrypt a body part without signing it
+set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust -- -r %r -- %f"
+
+# The command used to both sign and encrypt a body part
+set pgp_encrypt_sign_command="pgpewrap gpg %?p?--passphrase-fd 0? --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust -- -r %r -- %f"
+
+# The command used to import a key from a message into a user's public key ring
+set pgp_import_command="gpg --no-verbose --import %f"
+
+# This command is used to export a public key from the user's key ring
+set pgp_export_command="gpg --no-verbose --export --armor %r"
+
+# The command used to verify key information from the key selection menu
+set pgp_verify_key_command="gpg --verbose --batch --fingerprint --check-sigs %r"
+
+# The command used to list the public key ring's content
+set pgp_list_pubring_command="gpg --no-verbose --batch --quiet --with-colons --with-fingerprint --with-fingerprint --list-keys %r"
+
+# The command used to list the secret key ring's contents
+set pgp_list_secring_command="gpg --no-verbose --batch --quiet --with-colons --with-fingerprint --with-fingerprint --list-secret-keys %r"
+
+# If text assigned to this variable the PGP signature is only considered verified
+# if the output from pgp_verify_command contains the text.
+set pgp_good_sign="^\\[GNUPG:\\] GOODSIG"
+
+
+# Contacts query
+#set query_command="~/.local/bin/pc_query -m '%s'"
+set query_command="goobook query '%s'"
+bind editor <Tab> complete-query
+bind editor <space> noop
+
+# +----------------------------------------------------------------------------+
+# |Macros                                                                      |
+# +----------------------------------------------------------------------------+
+macro index gd "<change-folder>$postponed<enter>" "go to drafts"
+macro index gs "<change-folder>$record<enter>" "go to sent"
+macro index gi "<change-folder>$spoolfile<Enter>" "go to inbox"
+macro index gt "<change-folder>$trash<enter>" "go to trash"
+
+macro index,pager a "<pipe-message>goobook add<return>" "add sender address to Google contacts"
+macro index,pager \cb "<pipe-message>urlscan<Enter>" "call urlscan"
+macro attach,compose \cb "<pipe-entry>urlscan<Enter>" "call urlscan"
+
+# Macros for switching accounts
+macro index <f2> '<sync-mailbox><enter-command>source "gpg2 -dq $HOME/.password-store/mutt/main.gpg |"<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source "gpg2 -dq $HOME/.password-store/mutt/dev.gpg |"<enter><change-folder>!<enter>'

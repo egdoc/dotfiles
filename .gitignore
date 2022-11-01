@@ -1,0 +1,9 @@
+*un~
+vim/*
+!vim/after
+!vim/spell
+!vim/coc-settings.json
+mutt/*
+!mutt/color_schemes
+!mutt/mailcap
+!mutt/muttrc
