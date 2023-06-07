@@ -1,4 +1,4 @@
-all: bash git vim i3 lftp mutt picom pylint
+all: autorandr bash foot git vim i3 lftp mutt picom pylint rofi waybar sway
 
 .PHONY: autorandr
 autorandr:
