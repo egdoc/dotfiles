@@ -37,7 +37,6 @@ mode "$system" {
   bindsym s exec --no-startup-id "systemctl suspend", mode "default"
   bindsym r exec --no-startup-id "systemctl reboot", mode "default"
   bindsym p exec --no-startup-id "systemctl poweroff", mode "default"
-  bindsym Return mode "default"
   bindsym Escape mode "default"
 }
 
@@ -59,7 +58,7 @@ bar {
   tray_output primary
   status_command i3status
   position top
-  font pango:DejaVu Sans Mono 9
+  font $barfont
 }
 
 #
@@ -141,8 +140,8 @@ bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume @DEFAUL
 bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute      exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 bindsym XF86Calculator        exec --no-startup-id galculator
-bindsym XF86MonBrightnessUp   exec --no-startup-id "brightnessctl set 5%+"
-bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl set 5%-"
+bindsym XF86MonBrightnessUp   exec --no-startup-id "light -A 5%"
+bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 5%"
 # reload configuration file
 bindsym $mod+Shift+c reload
 # Restart i3 in place
