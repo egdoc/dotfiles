@@ -5,6 +5,11 @@ autorandr:
 	rm -rf ~/.config/autorandr
 	ln -s "${CURDIR}/autorandr" ~/.config/autorandr
 
+.PHONY: alacritty
+alacritty: 
+	rm -rf ~/.config/alacritty
+	ln -s "${CURDIR}/alacritty" ~/.config/alacritty
+
 bash:
 	for i in bash_profile bashrc; do \
 		ln -sf "${CURDIR}/$$i" ~/."$$i"; \
