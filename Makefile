@@ -45,6 +45,7 @@ lftp:
 
 .PHONY: mutt
 mutt:
+	rm -rf "${CURDIR}/mutt"
 	ln -s "${CURDIR}/mutt" ~/.config/mutt
 
 npm:
