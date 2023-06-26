@@ -6,13 +6,13 @@ autorandr:
 	ln -s "${CURDIR}/autorandr" ~/.config/autorandr
 
 .PHONY: alacritty
-alacritty: 
+alacritty:
 	rm -rf ~/.config/alacritty
 	ln -s "${CURDIR}/alacritty" ~/.config/alacritty
 
 bash:
-	for i in bash_profile bashrc; do \
-		ln -sf "${CURDIR}/$$i" ~/."$$i"; \
+	for i in .bash_profile .bashrc; do \
+		ln -sf "${CURDIR}/$$i" ~/"$$i"; \
 	done
 
 .PHONY: foot
@@ -25,11 +25,10 @@ git:
 	rm -rf ~/.config/git
 	ln -s "${CURDIR}/git" ~/.config/git
 
-.PHONY: vim
 vim:
 	rm -rf ~/.vim
-	for i in gvimrc vimrc vim; do \
-		ln -sf "${CURDIR}/$$i" ~/."$$i"; \
+	for i in .gvimrc .vimrc .vim; do \
+		ln -sf "${CURDIR}/$$i" ~/"$$i"; \
 	done
 
 .PHONY: i3
@@ -71,4 +70,3 @@ sway:
 
 uninstall:
 	find ~ -lname "${CURDIR}/*" -delete
-
