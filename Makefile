@@ -47,6 +47,9 @@ lftp:
 mutt:
 	ln -s "${CURDIR}/mutt" ~/.config/mutt
 
+npm:
+	ln -sf "${CURDIR}/.npmrc" ~/.npmrc
+
 picom:
 	ln -sf "${CURDIR}/picom.conf" ~/.config/picom.conf
 
