@@ -1,14 +1,13 @@
 env:
     TERM: xterm-256color
+    WINIT_X11_SCALE_FACTOR: "1"
 
 # Palenight colorscheme
 colors:
-  # Default colors
   primary:
     background: '0x292d3e'
     foreground: '0xd0d0d0'
 
-  # Normal colors
   normal:
     black:   '0x292d3e'
     red:     '0xf07178'
@@ -19,7 +18,6 @@ colors:
     cyan:    '0x89ddff'
     white:   '0xd0d0d0'
 
-  # Bright colors
   bright:
     black:   '0x434758'
     red:     '0xff8b92'
@@ -33,4 +31,9 @@ colors:
 font:
   normal:
     family: Source Code Pro
-  size: 10
+  size: 10.0
+
+window:
+  padding:
+    x: 6
+    y: 6
