@@ -1,4 +1,4 @@
-all: autorandr bash foot git vim i3 lftp mutt picom pylint rofi waybar sway
+all: autorandr bash foot git vim i3 lftp mutt picom pylint rofi waybar sway xfce4
 
 .PHONY: autorandr
 autorandr:
@@ -71,6 +71,11 @@ waybar:
 sway:
 	rm -rf ~/.config/sway
 	ln -s "${CURDIR}/sway" ~/.config/sway
+
+.PHONY: xfce4
+xfce4:
+	rm -rf ~/.config/xfce4
+	ln -s "${CURDIR}/xfce4" ~/.config/xfce4
 
 uninstall:
 	find ~ -lname "${CURDIR}/*" -delete
