@@ -1,6 +1,5 @@
-#
 # Variables
-#
+# ---
 set $mod Mod4
 set $left h
 set $down j
@@ -19,9 +18,9 @@ set $WS10 10
 set $windowfont "pango:DejaVu Sans Mono 8"
 set $barfont    "pango:DejaVu Sans Mono 9"
 
-#
+
 # Modes
-#
+# ---
 mode "resize" {
   bindsym $left  resize shrink width 10 px or 10 ppt
   bindsym $down  resize grow height 10 px or 10 ppt
@@ -40,20 +39,19 @@ mode "$system" {
   bindsym Escape mode "default"
 }
 
-#
+
 # Settings
-#
+# ---
 workspace_auto_back_and_forth yes
-# font for window titles. ISO 10646 = Unicode
 font $windowfont
-# applications specific settings
+
+# Application specific settings
 for_window [class="Pinentry-gtk-2"] floating enable
 for_window [class="Arandr"] floating enable
-for_window [class="Gpicview"] floating enable
-for_window [class="Viewnior"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="System-config-printer.py"] floating enable
 
+# i3bar settings
 bar {
   tray_output primary
   status_command i3status
@@ -61,21 +59,17 @@ bar {
   font $barfont
 }
 
-#
+
 # Keybindings
-#
+# ---
 floating_modifier $mod
-# Switch to "resize" mode
 bindsym $mod+r mode "resize"
-# Switch to "system" mode
 bindsym $mod+Escape mode "$system"
-# start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-# kill focused window
 bindsym $mod+Shift+Q kill
-# rofi shortcuts
 bindsym $mod+d   exec rofi -show drun
 bindsym Mod1+Tab exec rofi -show window
+
 # Change focused window
 bindsym $mod+$left  focus left
 bindsym $mod+$down  focus down
@@ -85,6 +79,7 @@ bindsym $mod+Left   focus left
 bindsym $mod+Down   focus down
 bindsym $mod+Up     focus up
 bindsym $mod+Right  focus right
+
 # Move focused window
 bindsym $mod+Shift+$left  move left
 bindsym $mod+Shift+$down  move down
@@ -94,25 +89,26 @@ bindsym $mod+Shift+Left   move left
 bindsym $mod+Shift+Down   move down
 bindsym $mod+Shift+Up     move up
 bindsym $mod+Shift+Right  move right
-# split in horizontal orientation
+
+# Split settings
 bindsym $mod+b split h
-# split in vertical orientation
 bindsym $mod+v split v
-# Toggle split mode
 bindsym $mod+BackSpace split toggle
-# enter fullscreen mode for the focused container
+
+# Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
-# change container layout (stacked, tabbed, default)
+
+# Change container layout (stacked, tabbed, default)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout default
-# toggle tiling / floating
+
+# Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-# change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-# focus the parent container
 bindsym $mod+a focus parent
-# workspace switching
+
+# Workspace switching
 bindsym $mod+1 workspace $WS1
 bindsym $mod+2 workspace $WS2
 bindsym $mod+3 workspace $WS3
@@ -123,7 +119,8 @@ bindsym $mod+7 workspace $WS7
 bindsym $mod+8 workspace $WS8
 bindsym $mod+9 workspace $WS9
 bindsym $mod+0 workspace $WS10
-# move focused container to workspace
+
+# Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $WS1
 bindsym $mod+Shift+2 move container to workspace $WS2
 bindsym $mod+Shift+3 move container to workspace $WS3
@@ -134,6 +131,7 @@ bindsym $mod+Shift+7 move container to workspace $WS7
 bindsym $mod+Shift+8 move container to workspace $WS8
 bindsym $mod+Shift+9 move container to workspace $WS9
 bindsym $mod+Shift+0 move container to workspace $WS10
+
 # XF86 shortcuts
 bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
@@ -142,16 +140,19 @@ bindsym XF86AudioMicMute      exec --no-startup-id pactl set-source-mute @DEFAUL
 bindsym XF86Calculator        exec --no-startup-id galculator
 bindsym XF86MonBrightnessUp   exec --no-startup-id "light -A 5%"
 bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 5%"
-# reload configuration file
+
+# Reload configuration file
 bindsym $mod+Shift+c reload
+
 # Restart i3 in place
 bindsym $mod+Shift+r restart
+
 # Exit i3
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-#
-# Autostart
-#
+
+# Autostart applications
+# ---
 exec --no-startup-id nm-applet
 exec --no-startup-id system-config-printer-applet
 exec --no-startup-id volumeicon
@@ -159,4 +160,4 @@ exec --no-startup-id ~/.fehbg
 exec --no-startup-id picom
 exec --no-startup-id xset s off
 exec --no-startup-id xset dpms 0 0 300
-exec --no-startup-id xss-lock -- i3lock -c 1f2430
+exec --no-startup-id xss-lock -- i3lock --nofork --color 1f2430
