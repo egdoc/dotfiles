@@ -153,11 +153,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Autostart applications
 # ---
-exec --no-startup-id nm-applet
-exec --no-startup-id system-config-printer-applet
-exec --no-startup-id volumeicon
+exec --no-startup-id dex-autostart --autostart --environment i3
 exec --no-startup-id ~/.fehbg
-exec --no-startup-id picom
 exec --no-startup-id xset s off
 exec --no-startup-id xset dpms 0 0 300
-exec --no-startup-id xss-lock -- i3lock --nofork --color 1f2430
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color 1f2430
