@@ -16,23 +16,3 @@ thinkpad_fullcharge() {
   echo 100 | sudo tee /sys/class/power_supply/BAT?/charge_stop_threshold
 }
 
-hometar() {
-  tar \
-    --directory="${HOME}" \
-    --create \
-    --verbose \
-    --preserve-permissions \
-    --acls \
-    --selinux \
-    --xattrs \
-    --sparse \
-    --gzip \
-    --exclude=lost+found \
-    --exclude=.Trash-* \
-    --exclude=.local/share/Trash \
-    --exclude=.cache \
-    . \
-  | gpg \
-      --symmetric \
-      --output home.tar.gz.gpg
-}
