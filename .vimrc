@@ -117,10 +117,10 @@ let NERDTreeShowHidden=1
 let g:mapleader = ','
 " CTRL+a to unhilight everything
 nnoremap <C-a> :noh<CR>
+" F3 Show NERDTree
+nnoremap <F3> :NERDTreeToggle<CR>
 " F7 to enable displaying cursor column
 nnoremap <F7> :set cursorcolumn!<CR>
-" F9 Show NERDTree
-nnoremap <F9> :NERDTreeToggle<CR>
 " Keep selection when moving text
 vnoremap < <gv
 vnoremap > >gv
