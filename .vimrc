@@ -6,9 +6,58 @@
 "
 
 
+"
+" PLUGINS INSTALLATION AND CONFIGURATION
+"
 
-" BEHAVIOR
-" --------
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+
+call plug#begin()
+Plug 'airblade/vim-gitgutter', { 'branch': 'main' }
+let g:gitgutter_max_signs = 500
+
+Plug 'ayu-theme/ayu-vim'
+let g:ayucolor = "mirage"
+
+Plug 'drewtempelmeyer/palenight.vim'
+let g:palenight_terminal_italics=1
+
+Plug 'preservim/nerdtree'
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeShowHidden=1
+nnoremap <f3> :nerdtreetoggle<cr>
+autocmd BufWinEnter * silent! NERDTreeMirror
+
+Plug 'vim-airline/vim-airline'
+let g:airline#extensions#tabline#enabled = 0
+let g:airline_powerline_fonts = 1
+
+Plug 'Sirver/ultisnips'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+Plug 'honza/vim-snippets'
+Plug 'pearofducks/ansible-vim'
+Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-surround'
+call plug#end()
+
+
+"
+" EDITOR SETTINGS
+"
+
 " Enable loading plugins for specific filetype
 filetype plugin on
 " Reload file when modified outside of vim
@@ -23,11 +72,7 @@ set wildmode=longest:full,full
 set noswapfile
 " Set paste mode key
 set pastetoggle=<F2>
-" Briefly move cursor to matching bracket
-set showmatch
 
-" INDENTATION
-" -----------
 " Load indent by filetype
 filetype indent on
 " Copy indent from current line when starting a new one
@@ -43,24 +88,20 @@ set shiftwidth=2
 " Round indent to multiple of shiftwidth when using > or < commands
 set shiftround
 
-" SEARCHING
-" ---------
 " Hilight search
 set hlsearch
 " Ignore case when searching
 set ignorecase
-" Show matches while typing
-set incsearch
 " Search in case-sensitive mode if search contains uppercase characters
 set smartcase
+" Show matches while typing
+set incsearch
 
-" INTERFACE
-" ---------
 " Enable syntax highlighting
 syntax on
 " Enable use of the mouse
 set mouse=a
-" Use system clipboard
+" Use system clipboard (works only if vim compiled with clipboard option)
 set clipboard=unnamedplus
 " Show line numbers
 set number
@@ -86,63 +127,36 @@ set splitbelow
 set splitright
 
 
+"
 " COMMANDS AUTORUN
-" ----------------
+"
+
 " Cd to the parent directory of the opened file
 autocmd BufEnter * silent! lcd %:p:h
 " Remove trailing spaces before saving
 autocmd BufWritePre * %s/\s\+$//e
-" Share an existing NERDTree, from another tab, in the current tab.
-autocmd BufWinEnter * silent! NERDTreeMirror
 
 
-" PLUGIN VARIABLES
-" ----------------
-" Ayu Colorscheme
-let g:ayucolor="mirage"
-" Palenight colorscheme
-let g:palenight_terminal_italics=1
-" Vim-airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 0
-" Gitgutter
-let g:gitgutter_max_signs = 500
-" NERDTree
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeShowHidden=1
+"
+" CUSTOM KEYBINDINGS
+"
 
-
-" KEYBINDINGS
-" -----------
 let g:mapleader = ','
 " CTRL+a to unhilight everything
 nnoremap <C-a> :noh<CR>
-" F3 Show NERDTree
-nnoremap <F3> :NERDTreeToggle<CR>
-" F7 to enable displaying cursor column
+" F6 format text with max width
+nnoremap <F6> :set textwidth=72<CR>gqj:set textwidth=79<CR>
+" F7 display cursor column
 nnoremap <F7> :set cursorcolumn!<CR>
 " Keep selection when moving text
 vnoremap < <gv
 vnoremap > >gv
-" h to move to left split
+" CTRL+h to move to left split
 nnoremap <C-H> <C-W>h
-" j to move to bottom split
+" CTRL+j to move to bottom split
 nnoremap <C-J> <C-W>j
-" k to move to top split
+" CTRL+k to move to top split
 nnoremap <C-K> <C-W>k
-" l to move to right split
+" CTRL+l to move to right split
 nnoremap <C-L> <C-W>l
-" Disable arrow keys
-nnoremap <up> <nop>
-inoremap <up> <nop>
-vnoremap <up> <nop>
-nnoremap <down> <nop>
-inoremap <down> <nop>
-vnoremap <down> <nop>
-nnoremap <left> <nop>
-inoremap <left> <nop>
-vnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <right> <nop>
-vnoremap <right> <nop>
 
