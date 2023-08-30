@@ -3,6 +3,7 @@
 !.vim/after
 !.vim/spell
 !.vim/coc-settings.json
+!.vim/pack
 mutt/*
 !mutt/color_schemes
 !mutt/mailcap

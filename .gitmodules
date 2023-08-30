@@ -1,0 +1,28 @@
+[submodule ".vim/pack/colorschemes/start/ayu-vim"]
+	path = .vim/pack/colorschemes/start/ayu-vim
+	url = https://github.com/ayu-theme/ayu-vim
+[submodule ".vim/pack/colorschemes/start/palenight.vim"]
+	path = .vim/pack/colorschemes/start/palenight.vim
+	url = https://github.com/drewtempelmeyer/palenight.vim
+[submodule ".vim/pack/plugins/start/nerdtree"]
+	path = .vim/pack/plugins/start/nerdtree
+	url = https://github.com/preservim/nerdtree
+[submodule ".vim/pack/plugins/start/vim-gitgutter"]
+	path = .vim/pack/plugins/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+	branch = main
+[submodule ".vim/pack/plugins/start/vim-airline"]
+	path = .vim/pack/plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule ".vim/pack/plugins/start/ultisnips"]
+	path = .vim/pack/plugins/start/ultisnips
+	url = https://github.com/Sirver/ultisnips
+[submodule ".vim/pack/plugins/start/vim-snippets"]
+	path = .vim/pack/plugins/start/vim-snippets
+	url = https://github.com/honza/vim-snippets
+[submodule ".vim/pack/plugins/start/ansible-vim"]
+	path = .vim/pack/plugins/start/ansible-vim
+	url = https://github.com/pearofducks/ansible-vim
+[submodule ".vim/pack/plugins/start/nerdcommenter"]
+	path = .vim/pack/plugins/start/nerdcommenter
+	url = https://github.com/preservim/nerdcommenter
