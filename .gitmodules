@@ -21,8 +21,15 @@
 	path = .vim/pack/plugins/start/vim-snippets
 	url = https://github.com/honza/vim-snippets
 [submodule ".vim/pack/plugins/start/ansible-vim"]
-	path = .vim/pack/plugins/start/ansible-vim
+	path = .vim/pack/syntax/start/ansible-vim
 	url = https://github.com/pearofducks/ansible-vim
 [submodule ".vim/pack/plugins/start/nerdcommenter"]
 	path = .vim/pack/plugins/start/nerdcommenter
 	url = https://github.com/preservim/nerdcommenter
+[submodule ".vim/pack/syntax/start/vim-mustache-handlebars"]
+	path = .vim/pack/syntax/start/vim-mustache-handlebars
+	url = http://github.com/mustache/vim-mustache-handlebars.git
+[submodule ".vim/pack/plugins/start/coc.nvim"]
+	path = .vim/pack/plugins/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+	branch = release

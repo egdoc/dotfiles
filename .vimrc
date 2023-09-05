@@ -17,6 +17,16 @@ let g:airline_powerline_fonts = 1
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" coc
+let g:coc_global_extensions = [
+    \'coc-markdownlint',
+    \'coc-python',
+    \'coc-css',
+    \'coc-json',
+    \'coc-tsserver',
+    \'coc-html' 
+    \]
+
 "}}}
 
 
@@ -25,13 +35,14 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " Enable loading plugins for specific filetype
 filetype plugin on
 
-" Use system clipboard when possible
-if has('clipboard')
-  set clipboard=unnamedplus
-endif
+" Use system clipboard (+clipboard needed)
+set clipboard=unnamedplus
 
 " Reload file when modified outside of vim
 set autoread
+
+" Encoding
+set encoding=utf-8
 
 " Don't wrap lines
 set nowrap
@@ -109,7 +120,7 @@ set foldlevel=99
 set list listchars=trail:·,tab:▸\
 
 " Enable use of the mouse
-set mouse=a
+set mouse=v
 
 " Show line numbers
 set number
@@ -140,7 +151,6 @@ syntax on
 
 "------ Automatic commands ------{{{
 
-autocmd BufWinEnter * silent! NERDTreeMirror
 
 "}}}
 
@@ -153,20 +163,21 @@ set pastetoggle=<F2>
 " CTRL+a to unhilight everything
 nnoremap <C-a> :noh<CR>
 
-" Re-select text after moving it
-vnoremap < <gv
-vnoremap > >gv
-
 " Shortcuts for splits navigation
 nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 
-" Shortcut to toggle NERDTree
-nnoremap <f3> :NERDTreeToggle<cr>
-
 " Toggle fold under cursor using spacebar
 nnoremap <Space> za
+
+" Re-select text after moving it
+vnoremap < <gv
+vnoremap > >gv
+
+" Shortcuts to explicitly copy/paste to/from system clipboard 
+vnoremap <leader>y "+y
+vnoremap <leader>p "+p
 
 "}}}
