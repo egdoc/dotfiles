@@ -3,9 +3,6 @@
 " ayu-vim
 let g:ayucolor = "mirage"
 
-" palenight
-let g:palenight_terminal_italics=1
-
 " nerdtree
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeShowHidden=1
@@ -108,7 +105,7 @@ set incsearch
 "------ User interface ------{{{
 
 " Set colorscheme
-colorscheme palenight
+colorscheme ayu
 
 " Background is dark
 set background=dark
