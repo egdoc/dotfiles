@@ -9,10 +9,10 @@
 	url = https://github.com/airblade/vim-gitgutter
 	branch = main
 [submodule ".vim/pack/plugins/start/ultisnips"]
-	path = .vim/pack/plugins/start/ultisnips
+	path = .vim/pack/plugins/opt/ultisnips
 	url = https://github.com/Sirver/ultisnips
 [submodule ".vim/pack/plugins/start/vim-snippets"]
-	path = .vim/pack/plugins/start/vim-snippets
+	path = .vim/pack/plugins/opt/vim-snippets
 	url = https://github.com/honza/vim-snippets
 [submodule ".vim/pack/plugins/start/ansible-vim"]
 	path = .vim/pack/syntax/start/ansible-vim

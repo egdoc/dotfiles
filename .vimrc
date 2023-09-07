@@ -10,6 +10,10 @@ let NERDTreeShowHidden=1
 " ultisnips
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+if has('python3')
+  packadd ultisnips
+  packadd vim-snippets
+endif
 
 "}}}
 
