@@ -7,22 +7,9 @@ let g:ayucolor = "mirage"
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeShowHidden=1
 
-" vim-airline
-let g:airline_powerline_fonts = 1
-
 " ultisnips
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" coc
-let g:coc_global_extensions = [
-    \'coc-markdownlint',
-    \'coc-python',
-    \'coc-css',
-    \'coc-json',
-    \'coc-tsserver',
-    \'coc-html' 
-    \]
 
 "}}}
 
