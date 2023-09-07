@@ -137,12 +137,6 @@ syntax on
 "}}}
 
 
-"------ Automatic commands ------{{{
-
-
-"}}}
-
-
 "------ Keymappings ------{{{
 
 " F2 switch to paste mode
