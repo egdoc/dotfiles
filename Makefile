@@ -72,6 +72,10 @@ sway:
 	rm -rf ~/.config/sway
 	ln -s "${CURDIR}/sway" ~/.config/sway
 
+tmux:
+	rm -rf ~/.tmux.conf
+	ln -sf "${CURDIR}/.tmux.conf" ~/.tmux.conf
+
 .PHONY: xfce4
 xfce4:
 	rm -rf ~/.config/xfce4
