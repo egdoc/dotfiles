@@ -22,8 +22,8 @@ foot:
 
 .PHONY: git
 git:
-	rm -rf ~/.config/git
-	ln -s "${CURDIR}/git" ~/.config/git
+	rm -rf ~/.gitconfig
+	ln -s "${CURDIR}/.gitconfig" ~/.gitconfig
 
 vim:
 	rm -rf ~/.vim
@@ -40,8 +40,8 @@ i3:
 
 .PHONY: lftp
 lftp:
-	rm -rf ~/.config/lftp
-	ln -s "${CURDIR}/lftp" ~/.config/lftp
+	rm -rf ~/.lftprc
+	ln -s "${CURDIR}/.lftprc" ~/.lftprc
 
 .PHONY: mutt
 mutt:
