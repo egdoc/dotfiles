@@ -16,3 +16,6 @@ thinkpad_fullcharge() {
   echo 100 | sudo tee /sys/class/power_supply/BAT?/charge_stop_threshold
 }
 
+if [ -S /run/user/${UID}/docker.sock ]; then
+  export DOCKER_HOST=unix:///run/user/${UID}/docker.sock
+fi
