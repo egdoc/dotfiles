@@ -15,6 +15,9 @@ if has('python3')
   packadd vim-snippets
 endif
 
+" molokai
+let g:molokai_original = 0
+
 "}}}
 
 
@@ -96,7 +99,7 @@ set incsearch
 "------ User interface ------{{{
 
 " Set colorscheme
-colorscheme ayu
+colorscheme molokai
 
 " Background is dark
 set background=dark
