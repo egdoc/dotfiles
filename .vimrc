@@ -50,6 +50,9 @@ set wildmode=longest:full,full
 " Don't create swapfile
 set noswapfile
 
+" Don't create viminfo
+set viminfo=""
+
 "}}}
 
 
@@ -164,5 +167,13 @@ vnoremap > >gv
 " Shortcuts to explicitly copy/paste to/from system clipboard 
 vnoremap <leader>y "+y
 vnoremap <leader>p "+p
+
+"}}}
+
+
+"------ Autocommands ------{{{
+
+" Automatically switch to file directory
+autocmd BufEnter * silent! lcd %:p:h
 
 "}}}
