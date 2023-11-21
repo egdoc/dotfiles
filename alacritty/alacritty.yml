@@ -1,39 +1,49 @@
 env:
     TERM: xterm-256color
-    WINIT_X11_SCALE_FACTOR: "1"
+      #WINIT_X11_SCALE_FACTOR: "1"
 
-# Palenight colorscheme
+# Ayu-mirage colorscheme
 colors:
   primary:
-    background: '0x292d3e'
-    foreground: '0xd0d0d0'
+    background: '#1f2430'
+    foreground: '#cbccc6'
+    bright_foreground: '#f28779'
 
+  # Normal colors
   normal:
-    black:   '0x292d3e'
-    red:     '0xf07178'
-    green:   '0xc3e88d'
-    yellow:  '0xffcb6b'
-    blue:    '0x82aaff'
-    magenta: '0xc792ea'
-    cyan:    '0x89ddff'
-    white:   '0xd0d0d0'
+    black:   '#212733'
+    red:     '#f08778'
+    green:   '#53bf97'
+    yellow:  '#fdcc60'
+    blue:    '#60b8d6'
+    magenta: '#ec7171'
+    cyan:    '#98e6ca'
+    white:   '#fafafa'
 
+  ## Brightened
   bright:
-    black:   '0x434758'
-    red:     '0xff8b92'
-    green:   '0xddffa7'
-    yellow:  '0xffe585'
-    blue:    '0x9cc4ff'
-    magenta: '0xe1acff'
-    cyan:    '0xa3f7ff'
-    white:   '0xffffff'
+    black: '#686868'
+    red: '#f58c7d'
+    green: '#58c49c'
+    yellow: '#ffd165'
+    blue: '#65bddb'
+    magenta: '#f17676'
+    cyan: '#9debcf'
+    white: '#ffffff'
 
 font:
   normal:
-    family: Source Code Pro
+    family: Liberation Mono
   size: 10.0
 
 window:
+  decorations: none
   padding:
     x: 6
     y: 6
+
+shell:
+  program: /bin/bash
+  args:
+    - -c
+    - tmux attach || tmux
