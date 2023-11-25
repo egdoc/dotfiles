@@ -1,6 +1,5 @@
 env:
     TERM: xterm-256color
-      #WINIT_X11_SCALE_FACTOR: "1"
 
 # Ayu-mirage colorscheme
 colors:
@@ -9,7 +8,6 @@ colors:
     foreground: '#cbccc6'
     bright_foreground: '#f28779'
 
-  # Normal colors
   normal:
     black:   '#212733'
     red:     '#f08778'
@@ -20,7 +18,6 @@ colors:
     cyan:    '#98e6ca'
     white:   '#fafafa'
 
-  ## Brightened
   bright:
     black: '#686868'
     red: '#f58c7d'
@@ -41,9 +38,3 @@ window:
   padding:
     x: 6
     y: 6
-
-shell:
-  program: /bin/bash
-  args:
-    - -c
-    - tmux attach || tmux
