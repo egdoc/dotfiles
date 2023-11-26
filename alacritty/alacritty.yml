@@ -29,12 +29,29 @@ colors:
     white: '#ffffff'
 
 font:
+  size: 10
   normal:
     family: Liberation Mono
-  size: 10.0
+    style: Regular
+
+  bold:
+    family: Liberation Mono
+    style: Bold
+
+  italic:
+    family: Liberation Mono
+    style: Italic
+
+  bold_italic:
+    family: Liberation Mono
+    style: BoldItalic
+
+scrolling:
+  history: 10000
+  multiplier: 3
 
 window:
   decorations: none
   padding:
-    x: 6
-    y: 6
+    x: 5
+    y: 5
