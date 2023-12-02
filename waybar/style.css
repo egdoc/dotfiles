@@ -43,7 +43,6 @@ button {
 
 #workspaces button.focused {
     background-color: #285577;
-    box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.urgent {
@@ -52,7 +51,6 @@ button {
 
 #mode {
     background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
 }
 
 #clock,
