@@ -16,7 +16,7 @@ if has('python3')
 endif
 
 " molokai
-let g:molokai_original = 0
+let g:molokai_original = 1
 
 "}}}
 
@@ -102,7 +102,7 @@ set incsearch
 "------ User interface ------{{{
 
 " Set colorscheme
-colorscheme ayu
+colorscheme molokai
 
 " Background is dark
 set background=dark
