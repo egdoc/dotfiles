@@ -49,6 +49,10 @@ button {
     background-color: #900000;
 }
 
+#workspaces button.active {
+    background-color: #285577;
+}
+
 #mode {
     background-color: #64727D;
 }
@@ -57,22 +61,12 @@ button {
 #battery,
 #cpu,
 #memory,
-#disk,
-#temperature,
-#backlight,
 #network,
 #pulseaudio,
-#wireplumber,
-#custom-media,
 #tray,
 #mode,
 #idle_inhibitor,
 #scratchpad,
-#mpd {
-    padding: 0 10px;
-    color: #ffffff;
-}
-
 #window,
 #workspaces {
     margin: 0 4px;
@@ -114,21 +108,11 @@ label:focus {
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
-}
-
-#wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
+    font-family: "Font Awesome 6 Free";
 }
 
 #wireplumber.muted {
     background-color: #f53c3c;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
 }
 
 #tray > .passive {
@@ -167,5 +151,5 @@ label:focus {
 }
 
 #scratchpad.empty {
-	background-color: transparent;
+    background-color: transparent;
 }
