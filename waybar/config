@@ -1,80 +1,83 @@
 {
-    "layer": "top",
-    "position": "top",
-    "height": 24,
-    "spacing": 4,
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["idle_inhibitor", "cpu", "memory", "battery", "battery#bat1", "pulseaudio", "clock", "tray"],
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
+  "layer": "bottom",
+  "position": "top",
+  "height": 24,
+  "spacing": 5,
+  "modules-left": ["sway/workspaces","sway/mode"],
+  "modules-center": ["sway/window"],
+  "modules-right": ["idle_inhibitor","cpu","memory","battery#bat0","battery#bat1","pulseaudio","clock","tray"],
+  "sway/workspaces": {
+    "format": "{value}"
+  },
+  "sway/mode": {
+    "format": "{}"
+  },
+  "sway/window": {
+    "format": "{title}"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "cpu": {
+    "interval": 10, 
+    "format": " {usage}%" 
+  },
+  "memory": {
+    "interval": 30,
+    "format": " {percentage}%"
+  },
+  "battery#bat0": {
+    "bat": "BAT0",
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 5
     },
-    "sway/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
+    "format": "{icon} {capacity}% ",
+    "format-charging": " {capacity}%" ,
+    "format-plugged": " {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "battery#bat1": {
+    "bat": "BAT1",
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 5
     },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
+    "format": "{icon} {capacity}% ",
+    "format-charging": " {capacity}%" ,
+    "format-plugged": " {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "clock": {
+    "format": "{:%Y/%m/%d %H:%M}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b>{}</b></span>"
+      }
+    }
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "{icon}",
+    "format-icons": {
+      "default": ["", "", ""],
     },
-    "cpu": {
-        "format": "{usage}% ", "tooltip": false,
-    },
-    "memory": {
-        "format": "{}% "
-    },
-    "battery": {
-        "weighted-average": true,
-        "bat": "BAT0",
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "battery#bat1": {
-        "weighted-average": true,
-        "bat": "BAT1",
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "upower": {
-        "icon-size": 20
-    },
-    "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
-    },
-    "pulseaudio": {
-        "scroll-step": 5,
-        "format": "{icon} {percentage}"
-        "format-muted": "",
-        "format-icons": {
-            "default": ["", "", ""]
-        },
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "on-click-right": "pavucontrol"
-    },
-    "tray": {
-        "icon-size": 20,
-        "spacing": 10
-    },
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "format-muted": ""
+  },
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10
+  },
 }
