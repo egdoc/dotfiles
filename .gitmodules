@@ -17,6 +17,6 @@
 [submodule ".vim/pack/syntax/start/vim-mustache-handlebars"]
 	path = .vim/pack/syntax/start/vim-mustache-handlebars
 	url = http://github.com/mustache/vim-mustache-handlebars.git
-[submodule ".vim/pack/colorschemes/start/molokai"]
-	path = .vim/pack/colorschemes/start/molokai
-	url = https://github.com/tomasr/molokai
+[submodule ".vim/pack/colorschemes/start/monokai"]
+	path = .vim/pack/colorschemes/start/monokai
+	url = https://github.com/ku1ik/vim-monokai

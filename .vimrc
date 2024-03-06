@@ -3,12 +3,12 @@
 " ayu-vim
 let g:ayucolor = "mirage"
 
+" gruvbox
+let gruvbox_italic = 1
+
 " nerdtree
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeShowHidden=1
-
-" molokai
-let g:molokai_original = 1
 
 "}}}
 
@@ -94,7 +94,7 @@ set incsearch
 "------ User interface ------{{{
 
 " Set colorscheme
-colorscheme molokai
+colorscheme monokai
 
 " Background is dark
 set background=dark
