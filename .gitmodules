@@ -20,3 +20,6 @@
 [submodule ".vim/pack/colorschemes/start/monokai"]
 	path = .vim/pack/colorschemes/start/monokai
 	url = https://github.com/ku1ik/vim-monokai
+[submodule ".vim/pack/plugins/start/ale"]
+	path = .vim/pack/plugins/start/ale
+	url = https://github.com/dense-analysis/ale
