@@ -4,5 +4,9 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # Environment variables
+if ! [[ "$PATH" =~ "$HOME/.local/bin" ]]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
 export EDITOR="vim"
-export PATH="${HOME}/.local/bin:${PATH}"
+export DOCKER_HOST="unix:///run/user/${UID}/docker.sock"

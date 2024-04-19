@@ -5,4 +5,5 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
+# Aliases
 alias virtualenv="python -m venv"
