@@ -6,4 +6,5 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Aliases
+alias nukedocker='docker stop $(docker ps -q); docker system prune --all --volumes'
 alias virtualenv="python -m venv"
