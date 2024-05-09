@@ -103,7 +103,7 @@ set incsearch
 "------ User interface ------{{{
 
 " Set colorscheme
-colorscheme monokai
+colorscheme everforest
 
 " Background is dark
 set background=dark
