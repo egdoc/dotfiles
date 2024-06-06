@@ -26,3 +26,6 @@
 [submodule ".vim/pack/colorschemes/start/everforest"]
 	path = .vim/pack/colorschemes/start/everforest
 	url = https://github.com/sainnhe/everforest
+[submodule ".vim/pack/colorschemes/start/gruvbox"]
+	path = .vim/pack/colorschemes/start/gruvbox
+	url = https://github.com/morhetz/gruvbox

@@ -103,7 +103,7 @@ set incsearch
 "------ User interface ------{{{
 
 " Set colorscheme
-colorscheme everforest
+colorscheme gruvbox
 
 " Background is dark
 set background=dark
