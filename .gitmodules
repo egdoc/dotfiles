@@ -29,3 +29,6 @@
 [submodule ".vim/pack/colorschemes/start/gruvbox"]
 	path = .vim/pack/colorschemes/start/gruvbox
 	url = https://github.com/morhetz/gruvbox
+[submodule ".vim/pack/plugins/start/vim-airline"]
+	path = .vim/pack/plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline

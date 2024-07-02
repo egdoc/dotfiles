@@ -19,6 +19,9 @@ let gruvbox_italic = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeShowHidden=1
 
+" vim-airline
+let g:airline_powerline_fonts = 1
+
 "}}}
 
 
