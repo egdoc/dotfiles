@@ -6,3 +6,4 @@ set mirror:parallel-transfer-count 10
 set ssl:ca-file /etc/ssl/certs/ca-certificates.crt
 set ssl:check-hostname false
 set ssl:verify-certificate true
+set ssl:verify-certificate/localhost no
