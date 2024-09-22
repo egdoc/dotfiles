@@ -21,3 +21,12 @@ resticbk() {
     ~/.local/share/lftp \
     ~/.local/share/keepassxc
 }
+
+resticrestore() {
+  local -r repo="$1"
+  local -r target="$2"
+  restic restore latest \
+    --repo="${repo}" \
+    --verbose \
+    --target "${target:-/}"
+}
