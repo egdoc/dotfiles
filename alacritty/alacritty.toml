@@ -1,0 +1,64 @@
+[colors.bright]
+black = "#686868"
+blue = "#65bddb"
+cyan = "#9debcf"
+green = "#58c49c"
+magenta = "#f17676"
+red = "#f58c7d"
+white = "#ffffff"
+yellow = "#ffd165"
+
+[colors.normal]
+black = "#212733"
+blue = "#60b8d6"
+cyan = "#98e6ca"
+green = "#53bf97"
+magenta = "#ec7171"
+red = "#f08778"
+white = "#fafafa"
+yellow = "#fdcc60"
+
+[colors.primary]
+background = "#1f2430"
+bright_foreground = "#f28779"
+foreground = "#cbccc6"
+
+[cursor.style]
+shape = "Beam"
+blinking = "On"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 10
+
+[font.bold]
+family = "Liberation Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "Liberation Mono"
+style = "BoldItalic"
+
+[font.italic]
+family = "Liberation Mono"
+style = "Italic"
+
+[font.normal]
+family = "Liberation Mono"
+style = "Regular"
+
+[selection]
+save_to_clipboard = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[window]
+decorations = "full"
+
+[window.padding]
+x = 5
+y = 5
