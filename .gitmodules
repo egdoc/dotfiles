@@ -38,3 +38,6 @@
 [submodule ".vim/pack/colorschemes/start/dracula"]
 	path = .vim/pack/colorschemes/start/dracula
 	url = https://github.com/dracula/vim.git
+[submodule ".vim/pack/colorschemes/start/nord"]
+	path = .vim/pack/colorschemes/start/nord
+	url = https://github.com/nordtheme/vim
