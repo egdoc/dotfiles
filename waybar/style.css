@@ -20,7 +20,6 @@ button {
 #workspaces button {
     background-color: #5f676a;
     color: #ffffff;
-    padding: 5px 10px;
 }
 
 #workspaces button:hover {
