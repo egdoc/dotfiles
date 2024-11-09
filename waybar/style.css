@@ -1,6 +1,7 @@
 * {
     font-family: Roboto, Helvetica, Arial, sans-serif, "Font Awesome 6 Free";
     font-size: 13px;
+    min-height: 0;
 }
 
 #waybar {

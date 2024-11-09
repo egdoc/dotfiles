@@ -1,7 +1,7 @@
 {
   "layer": "bottom",
   "position": "top",
-  "height": 24,
+  "height": 20,
   "spacing": 5,
   "modules-left": ["sway/workspaces","sway/mode"],
   "modules-center": ["sway/window"],
