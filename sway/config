@@ -55,6 +55,7 @@ for_window [class="Gpicview"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="System-config-printer.py"] floating enable
 for_window [app_id="org.keepassxc.KeePassXC"] floating enable
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 
 # monitors layout
 output $notebook_display pos 0    0 res 1920x1080
