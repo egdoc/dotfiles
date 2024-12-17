@@ -4,9 +4,9 @@
 let g:ale_virtualtext_cursor = 0
 let g:ale_linters_explicit = 1
 let g:ale_linters = {
-  \ 'ansible': ['yamllint', 'ansible_lint'],
   \ 'sh': ['shellcheck'],
   \ 'python': ['pylint'],
+  \ 'yaml': ['yamllint'],
 \}
 
 " ayu-vim
