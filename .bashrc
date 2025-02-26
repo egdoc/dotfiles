@@ -9,25 +9,21 @@ fi
 alias nukedocker='docker stop $(docker ps -q); docker system prune --all --volumes'
 alias virtualenv="python -m venv"
 
-# Connect to an FTP host using lftp and credentials
-# stored in password-store database. Credentials
-# must be stored in the following format:
-#
-# <password>
-# login: <login>
-# url: <url>
+
+# Extract latest snapshot from Borg repository
 #
 # Arguments:
-#   $1: The password-store entry
-pftp() {
-  data="$(pass "$1/ftp")"
-
-  if [ $? -eq 0 ]; then
-    IFS=$'\n' read -d '' -r password login url <<< "${data}"
-    export LFTP_PASSWORD="${password}"
-    lftp \
-      --env-password \
-      --user "$(echo "${login}" | cut -d ' ' -f2)" \
-      "$(echo "${url}" | cut -d ' ' -f 2)"
+#   Path of the Borg repository
+#   Path of the extraction target directory (default is /)
+borg_extract_latest() {
+  if [ "$#" -eq 0 ]; then
+    echo "Missing Borg repository path, aborting." >&2
+    return 1
   fi
+
+  local repo; repo="$(realpath "$1")"
+  local target; target="${2:-/}"
+  local latest; latest="$(borg list --last 1 "${repo}" | cut -d ' ' -f1)"
+
+  cd "${target}" && borg extract --list "${repo}::${latest}"
 }
