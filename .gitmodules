@@ -1,6 +1,6 @@
 [submodule ".vim/pack/colorschemes/start/ayu-vim"]
 	path = .vim/pack/colorschemes/start/ayu-vim
-	url = https://github.com/egdoc/ayu-vim
+	url = https://github.com/ayu-theme/ayu-vim
 [submodule ".vim/pack/plugins/start/nerdtree"]
 	path = .vim/pack/plugins/start/nerdtree
 	url = https://github.com/preservim/nerdtree
