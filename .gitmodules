@@ -41,3 +41,6 @@
 [submodule ".vim/pack/colorschemes/start/nord"]
 	path = .vim/pack/colorschemes/start/nord
 	url = https://github.com/nordtheme/vim
+[submodule ".vim/pack/colorschemes/start/catppuccin"]
+	path = .vim/pack/colorschemes/start/catppuccin
+	url = https://github.com/catppuccin/vim

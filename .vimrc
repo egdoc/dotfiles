@@ -106,7 +106,7 @@ set incsearch
 "------ User interface ------{{{
 
 " Set colorscheme
-colorscheme gruvbox
+colorscheme catppuccin_mocha
 
 " Background is dark
 set background=dark
