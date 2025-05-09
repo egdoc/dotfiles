@@ -32,9 +32,6 @@
 [submodule ".vim/pack/plugins/start/vim-airline"]
 	path = .vim/pack/plugins/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
-[submodule ".vim/pack/plugins/start/vim-sleuth"]
-	path = .vim/pack/plugins/start/vim-sleuth
-	url = https://github.com/tpope/vim-sleuth
 [submodule ".vim/pack/colorschemes/start/dracula"]
 	path = .vim/pack/colorschemes/start/dracula
 	url = https://github.com/dracula/vim.git
