@@ -7,4 +7,4 @@ fi
 
 # Aliases
 alias nukedocker='docker stop $(docker ps -q); docker system prune --all --volumes'
-alias virtualenv="python -m venv"
+alias venv="python -m venv"
