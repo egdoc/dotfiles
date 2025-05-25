@@ -41,6 +41,16 @@ mode "$system" {
   bindsym Escape mode "default"
 }
 
+set $tuned profile: (p) powersave (b) balanced (t) throughput-performance
+mode "$tuned" {
+  bindsym p exec --no-startup-id "tuned-adm profile powersave", mode "default"
+  bindsym b exec --no-startup-id "tuned-adm profile balanced", mode "default"
+  bindsym x exec --no-startup-id "tuned-adm profile throughput-performance", mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+
 #
 # Settings
 #
@@ -71,6 +81,7 @@ workspace 1 output $notebook_display
 # switch modes
 bindsym $mod+r mode "resize"
 bindsym $mod+Escape mode "$system"
+bindsym $mod+t mode "$tuned"
 
 # launch terminal
 bindsym $mod+Return exec $term
