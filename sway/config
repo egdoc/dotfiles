@@ -71,9 +71,6 @@ for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 output $notebook_display pos 0    0 res 1920x1080
 output $external_display pos 1920 0 res 2560x1080
 
-# bind workspace 1 to notebook display by default
-workspace 1 output $notebook_display
-
 #
 # Keybindings
 #
@@ -115,7 +112,7 @@ bindsym $mod+BackSpace split toggle
 bindsym $mod+f fullscreen
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout default
+bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -165,8 +162,12 @@ bindsym $mod+Shift+C reload
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-bindsym Print exec "/bin/bash -c 'grimshot save window - | ksnip -'"
-bindsym Shift+Print exec "/bin/bash -c 'grimshot --notify save area - | ksnip -'"
+# Screenshots
+bindsym Print       exec grimshot --notify save window
+bindsym Shift+Print exec grimshot --notify save area
+
+# Application launching
+bindsym $mod+F1 exec firefox
 
 # Disable monitor screen when lid is closed
 bindswitch --reload --locked lid:on  output $notebook_display disable
