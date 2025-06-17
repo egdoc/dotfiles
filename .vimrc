@@ -118,7 +118,7 @@ set foldlevel=99
 set list listchars=trail:·,tab:▸\
 
 " Enable use of the mouse
-set mouse=v
+set mouse=a
 
 " Show line numbers
 set number
