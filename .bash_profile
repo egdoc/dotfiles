@@ -9,4 +9,4 @@ if ! [[ ":$PATH:" == *:"$HOME/.local/bin":* ]]; then
 fi
 
 export EDITOR="vim"
-export DOCKER_HOST="unix:///$XDG_RUNTIME_DIR/docker.sock"
+export DOCKER_HOST="unix:///$XDG_RUNTIME_DIR/podman/podman.sock"
