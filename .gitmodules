@@ -41,3 +41,6 @@
 [submodule ".vim/pack/colorschemes/start/catppuccin"]
 	path = .vim/pack/colorschemes/start/catppuccin
 	url = https://github.com/catppuccin/vim
+[submodule ".vim/pack/plugins/start/vim-fugitive"]
+	path = .vim/pack/plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
