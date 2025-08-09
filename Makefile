@@ -1,4 +1,16 @@
-all: autorandr bash foot git vim i3 lftp mutt picom pylint rofi waybar sway xfce4 keepassxc
+all: autorandr \
+	bash \
+	foot \
+	git \
+	vim \
+	i3 \
+	lftp \
+	mutt \
+	picom \
+	pylint \
+	rofi \
+	waybar \
+	sway
 
 .PHONY: autorandr
 autorandr:
@@ -75,16 +87,6 @@ sway:
 tmux:
 	rm -rf ~/.tmux.conf
 	ln -sf "${CURDIR}/.tmux.conf" ~/.tmux.conf
-
-.PHONY: xfce4
-xfce4:
-	rm -rf ~/.config/xfce4
-	ln -s "${CURDIR}/xfce4" ~/.config/xfce4
-
-.PHONY: keepassxc
-keepassxc:
-	rm -rf ~/.config/keepassxc
-	ln -s "${CURDIR}/keepassxc" ~/.config/keepassxc
 
 uninstall:
 	find ~ -lname "${CURDIR}/*" -delete
