@@ -26,6 +26,9 @@ let g:airline_powerline_fonts = 1
 
 
 "------ Generic settings ------{{{
+"
+" Append ~/.local/share/vim to packpath
+set packpath+=~/.local/share/vim
 
 " Enable loading plugins for specific filetype
 filetype plugin on
