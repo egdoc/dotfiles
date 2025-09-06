@@ -1,46 +1,46 @@
-[submodule ".vim/pack/colorschemes/start/ayu-vim"]
-	path = .vim/pack/colorschemes/start/ayu-vim
+[submodule "vim/pack/colorschemes/start/ayu-vim"]
+	path = vim/pack/colorschemes/start/ayu-vim
 	url = https://github.com/ayu-theme/ayu-vim
-[submodule ".vim/pack/plugins/start/nerdtree"]
-	path = .vim/pack/plugins/start/nerdtree
+[submodule "vim/pack/plugins/start/nerdtree"]
+	path = vim/pack/plugins/start/nerdtree
 	url = https://github.com/preservim/nerdtree
-[submodule ".vim/pack/plugins/start/vim-gitgutter"]
-	path = .vim/pack/plugins/start/vim-gitgutter
+[submodule "vim/pack/plugins/start/vim-gitgutter"]
+	path = vim/pack/plugins/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
 	branch = main
-[submodule ".vim/pack/plugins/start/ansible-vim"]
-	path = .vim/pack/syntax/start/ansible-vim
+[submodule "vim/pack/plugins/start/ansible-vim"]
+	path = vim/pack/syntax/start/ansible-vim
 	url = https://github.com/pearofducks/ansible-vim
-[submodule ".vim/pack/plugins/start/nerdcommenter"]
-	path = .vim/pack/plugins/start/nerdcommenter
+[submodule "vim/pack/plugins/start/nerdcommenter"]
+	path = vim/pack/plugins/start/nerdcommenter
 	url = https://github.com/preservim/nerdcommenter
-[submodule ".vim/pack/syntax/start/vim-mustache-handlebars"]
-	path = .vim/pack/syntax/start/vim-mustache-handlebars
+[submodule "vim/pack/syntax/start/vim-mustache-handlebars"]
+	path = vim/pack/syntax/start/vim-mustache-handlebars
 	url = http://github.com/mustache/vim-mustache-handlebars.git
-[submodule ".vim/pack/colorschemes/start/monokai"]
-	path = .vim/pack/colorschemes/start/monokai
+[submodule "vim/pack/colorschemes/start/monokai"]
+	path = vim/pack/colorschemes/start/monokai
 	url = https://github.com/ku1ik/vim-monokai
-[submodule ".vim/pack/plugins/start/ale"]
-	path = .vim/pack/plugins/start/ale
+[submodule "vim/pack/plugins/start/ale"]
+	path = vim/pack/plugins/start/ale
 	url = https://github.com/dense-analysis/ale
-[submodule ".vim/pack/colorschemes/start/everforest"]
-	path = .vim/pack/colorschemes/start/everforest
+[submodule "vim/pack/colorschemes/start/everforest"]
+	path = vim/pack/colorschemes/start/everforest
 	url = https://github.com/sainnhe/everforest
-[submodule ".vim/pack/colorschemes/start/gruvbox"]
-	path = .vim/pack/colorschemes/start/gruvbox
+[submodule "vim/pack/colorschemes/start/gruvbox"]
+	path = vim/pack/colorschemes/start/gruvbox
 	url = https://github.com/morhetz/gruvbox
-[submodule ".vim/pack/plugins/start/vim-airline"]
-	path = .vim/pack/plugins/start/vim-airline
+[submodule "vim/pack/plugins/start/vim-airline"]
+	path = vim/pack/plugins/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
-[submodule ".vim/pack/colorschemes/start/dracula"]
-	path = .vim/pack/colorschemes/start/dracula
+[submodule "vim/pack/colorschemes/start/dracula"]
+	path = vim/pack/colorschemes/start/dracula
 	url = https://github.com/dracula/vim.git
-[submodule ".vim/pack/colorschemes/start/nord"]
-	path = .vim/pack/colorschemes/start/nord
+[submodule "vim/pack/colorschemes/start/nord"]
+	path = vim/pack/colorschemes/start/nord
 	url = https://github.com/nordtheme/vim
-[submodule ".vim/pack/colorschemes/start/catppuccin"]
-	path = .vim/pack/colorschemes/start/catppuccin
+[submodule "vim/pack/colorschemes/start/catppuccin"]
+	path = vim/pack/colorschemes/start/catppuccin
 	url = https://github.com/catppuccin/vim
-[submodule ".vim/pack/plugins/start/vim-fugitive"]
-	path = .vim/pack/plugins/start/vim-fugitive
+[submodule "vim/pack/plugins/start/vim-fugitive"]
+	path = vim/pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive

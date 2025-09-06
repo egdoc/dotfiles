@@ -26,8 +26,8 @@ autorandr:
 	ln -s "${CURDIR}/autorandr" ~/.config/autorandr
 
 bash:
-	for i in .bash_profile .bashrc; do \
-		ln -sf "${CURDIR}/$$i" ~/"$$i"; \
+	for i in bash_profile bashrc; do \
+		ln -sf "${CURDIR}/$$i" ~/."$$i"; \
 	done
 
 .PHONY: foot
@@ -35,15 +35,14 @@ foot:
 	rm -rf ~/.config/foot
 	ln -s "${CURDIR}/foot" ~/.config/foot
 
-.PHONY: git
 git:
 	rm -rf ~/.gitconfig
-	ln -s "${CURDIR}/.gitconfig" ~/.gitconfig
+	ln -s "${CURDIR}/gitconfig" ~/.gitconfig
 
 vim:
 	rm -rf ~/.vim
-	for i in .gvimrc .vimrc .vim; do \
-		ln -sf "${CURDIR}/$$i" ~/"$$i"; \
+	for i in gvimrc vimrc vim; do \
+		ln -sf "${CURDIR}/$$i" ~/."$$i"; \
 	done
 
 .PHONY: i3
@@ -53,10 +52,8 @@ i3:
 		ln -s "${CURDIR}/$$i" ~/.config/"$$i"; \
 	done
 
-.PHONY: lftp
 lftp:
-	rm -rf ~/.lftprc
-	ln -s "${CURDIR}/.lftprc" ~/.lftprc
+	ln -sf "${CURDIR}/lftprc" ~/.lftprc
 
 .PHONY: mutt
 mutt:
@@ -64,7 +61,7 @@ mutt:
 	ln -s "${CURDIR}/mutt" ~/.config/mutt
 
 npm:
-	ln -sf "${CURDIR}/.npmrc" ~/.npmrc
+	ln -sf "${CURDIR}/npmrc" ~/.npmrc
 
 picom:
 	ln -sf "${CURDIR}/picom.conf" ~/.config/picom.conf
@@ -88,8 +85,7 @@ sway:
 	ln -s "${CURDIR}/sway" ~/.config/sway
 
 tmux:
-	rm -rf ~/.tmux.conf
-	ln -sf "${CURDIR}/.tmux.conf" ~/.tmux.conf
+	ln -sf "${CURDIR}/tmux.conf" ~/.tmux.conf
 
 uninstall:
 	find ~ -lname "${CURDIR}/*" -delete
