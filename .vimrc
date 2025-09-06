@@ -3,11 +3,6 @@
 " ALE
 let g:ale_virtualtext_cursor = 0
 let g:ale_linters_explicit = 1
-let g:ale_linters = {
-  \ 'sh': ['shellcheck'],
-  \ 'python': ['pylint'],
-  \ 'yaml': ['yamllint'],
-\}
 
 " ayu-vim
 let g:ayucolor = "mirage"
@@ -147,6 +142,9 @@ set title
 " Enable syntax highlighting
 syntax on
 
+" Highlight current line
+set cursorline
+
 "}}}
 
 
@@ -182,5 +180,8 @@ vnoremap <leader>p "+p
 
 " Automatically switch to file directory
 autocmd BufEnter * silent! lcd %:p:h
+
+" Set filetype of yaml files in 'playbooks' directory to yaml.ansible
+autocmd BufRead,BufNewFile */playbooks/*.yml,*/playbooks/*.yaml  set filetype=yaml.ansible
 
 "}}}
