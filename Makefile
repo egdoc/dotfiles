@@ -13,7 +13,8 @@ all: alacritty \
 	rofi \
 	waybar \
 	sway \
-	tmux
+	tmux \
+	kanshi
 
 .PHONY: alacritty
 alacritty:
@@ -86,6 +87,11 @@ sway:
 
 tmux:
 	ln -sf "${CURDIR}/tmux.conf" ~/.tmux.conf
+
+.PHONY: kanshi
+kanshi:
+	rm -rf ~/.config/kanshi
+	ln -s "${CURDIR}/kanshi" ~/.config/kanshi
 
 uninstall:
 	find ~ -lname "${CURDIR}/*" -delete

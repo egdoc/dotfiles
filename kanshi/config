@@ -1,0 +1,20 @@
+output 'AU Optronics 0x103D Unknown' {
+  mode 1920x1080
+  scale 1
+  alias $internal
+}
+
+output 'LG Electronics LG HDR WFHD 0x000366D8' {
+  mode 2560x1080
+  scale 1
+  alias $ultrawide
+}
+
+profile default {
+  output $internal enable position 0,0
+}
+
+profile docked {
+  output $internal enable position 0,0
+  output $ultrawide enable position 1920,0
+}
