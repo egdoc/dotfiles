@@ -179,6 +179,6 @@ vnoremap <leader>p "+p
 autocmd BufEnter * silent! lcd %:p:h
 
 " Set filetype of yaml files in 'playbooks' directory to yaml.ansible
-autocmd BufRead,BufNewFile */playbooks/*.yml,*/playbooks/*.yaml  set filetype=yaml.ansible
+autocmd BufRead,BufNewFile */playbooks/*.yml,*/playbooks/*.yaml set filetype=yaml.ansible
 
 "}}}
