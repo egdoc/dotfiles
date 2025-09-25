@@ -44,3 +44,6 @@
 [submodule "vim/pack/plugins/start/vim-fugitive"]
 	path = vim/pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
+[submodule "vim/pack/colorschemes/start/vim-horizon"]
+	path = vim/pack/colorschemes/start/vim-horizon
+	url = https://github.com/ntk148v/vim-horizon
