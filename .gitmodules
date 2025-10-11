@@ -47,3 +47,6 @@
 [submodule "vim/pack/colorschemes/start/vim-horizon"]
 	path = vim/pack/colorschemes/start/vim-horizon
 	url = https://github.com/ntk148v/vim-horizon
+[submodule "vim/pack/colorschemes/start/vim-colors-solarized"]
+	path = vim/pack/colorschemes/start/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
