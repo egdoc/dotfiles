@@ -101,7 +101,7 @@ set incsearch
 "------ User interface ------{{{
 
 " Set colorscheme
-colorscheme horizon
+colorscheme nord
 
 " Background is dark
 set background=dark
