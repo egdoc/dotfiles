@@ -1,4 +1,4 @@
-" ------ Plugin settings ------{{{
+" Plugin settings ------{{{
 
 " ALE
 let g:ale_virtualtext_cursor = 0
@@ -20,8 +20,8 @@ let g:airline_powerline_fonts = 1
 "}}}
 
 
-"------ Generic settings ------{{{
-"
+" Generic settings ------{{{
+
 " Enable loading plugins for specific filetype
 filetype plugin on
 
@@ -55,7 +55,7 @@ set viminfo=""
 "}}}
 
 
-"------ Indentation ------{{{
+" Indentation ------{{{
 
 " Load indent by filetype
 filetype indent on
@@ -81,7 +81,7 @@ set shiftround
 "}}}
 
 
-"------ Text search and highlight ------{{{
+" Text search and highlight ------{{{
 
 " Hilight search
 set hlsearch
@@ -98,7 +98,7 @@ set incsearch
 "}}}
 
 
-"------ User interface ------{{{
+" User interface ------{{{
 
 " Set colorscheme
 colorscheme nord
@@ -145,7 +145,7 @@ set cursorline
 "}}}
 
 
-"------ Keymappings ------{{{
+" Keymappings ------{{{
 
 " F2 switch to paste mode
 set pastetoggle=<F2>
@@ -173,7 +173,7 @@ vnoremap <leader>p "+p
 "}}}
 
 
-"------ Autocommands ------{{{
+" Autocommands ------{{{
 
 " Automatically switch to file directory
 autocmd BufEnter * silent! lcd %:p:h
