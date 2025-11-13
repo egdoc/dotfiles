@@ -14,7 +14,8 @@ all: alacritty \
 	waybar \
 	sway \
 	tmux \
-	kanshi
+	kanshi \
+	monitors
 
 .PHONY: alacritty
 alacritty:
@@ -92,6 +93,9 @@ tmux:
 kanshi:
 	rm -rf ~/.config/kanshi
 	ln -s "${CURDIR}/kanshi" ~/.config/kanshi
+
+monitors:
+	ln -sf "${CURDIR}/monitors.xml" ~/.config/monitors.xml
 
 uninstall:
 	find ~ -lname "${CURDIR}/*" -delete
