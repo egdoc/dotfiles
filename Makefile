@@ -7,6 +7,7 @@ all: alacritty \
 	i3 \
 	lftp \
 	mutt \
+	mpv \
 	npm \
 	picom \
 	pylint \
@@ -61,6 +62,11 @@ lftp:
 mutt:
 	rm -rf ~/.config/mutt
 	ln -s "${CURDIR}/mutt" ~/.config/mutt
+
+.PHONY: mpv
+mpv:
+	rm -rf ~/.config/mpv
+	ln -s "${CURDIR}/mpv" ~/.config/mpv
 
 npm:
 	ln -sf "${CURDIR}/npmrc" ~/.npmrc
