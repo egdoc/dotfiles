@@ -9,3 +9,7 @@ fi
 alias nukedocker='docker stop $(docker ps -q); docker system prune --all --volumes'
 alias clrtmp='find /tmp -maxdepth 1 -user $(whoami) -exec rm -rf {} \;'
 alias venv="python -m venv .venv && source .venv/bin/activate"
+
+if command -v vimx &> /dev/null; then
+  alias vim="vimx"
+fi
