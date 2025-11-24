@@ -166,9 +166,11 @@ nnoremap <Space> za
 vnoremap < <gv
 vnoremap > >gv
 
-" Shortcuts to explicitly copy/paste to/from system clipboard 
-vnoremap <leader>y "+y
-vnoremap <leader>p "+p
+" Shortcuts to explicitly copy/paste to/from system clipboard
+if has('clipboard')
+  vnoremap <leader>y "+y
+  vnoremap <leader>p "+p
+endif
 
 "}}}
 
