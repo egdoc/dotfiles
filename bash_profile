@@ -1,12 +1,44 @@
+#
+# .bash_profile
+#
+# Author: Egidio Docile
+#
+
 # Get aliases and functions
-if [ -f ~/.bashrc ]; then
-  . ~/.bashrc
-fi
+[ -f ~/.bashrc ] && . ~/.bashrc
+
+
+pathmunge() {
+  local -r dir="$1"
+  local -r pos="$2"
+
+  [[ -h "${dir}" ]] && return
+
+  case ":${PATH}:" in
+    *:"${dir}":*)
+      ;;
+    *)
+      if [[ "${pos}" == "after" ]] ; then
+        PATH=$PATH:"${dir}"
+      else
+        PATH="${dir}":$PATH
+      fi
+      ;;
+  esac
+}
+
 
 # Environment variables
-if ! [[ ":$PATH:" == *:"$HOME/.local/bin":* ]]; then
-  export PATH="$HOME/.local/bin:$PATH"
+export DOCKER_HOST="unix:///$XDG_RUNTIME_DIR/podman/podman.sock"
+
+if command -v vimx &> /dev/null; then
+  export EDITOR="vimx"
+else
+  export EDITOR="vim"
 fi
 
-export EDITOR="vim"
-export DOCKER_HOST="unix:///$XDG_RUNTIME_DIR/podman/podman.sock"
+
+# Add directories to PATH
+pathmunge ~/.local/bin before
+
+unset -f pathmunge
