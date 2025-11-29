@@ -17,9 +17,6 @@
 [submodule "vim/pack/syntax/start/vim-mustache-handlebars"]
 	path = vim/pack/syntax/start/vim-mustache-handlebars
 	url = http://github.com/mustache/vim-mustache-handlebars.git
-[submodule "vim/pack/colorschemes/start/monokai"]
-	path = vim/pack/colorschemes/start/monokai
-	url = https://github.com/ku1ik/vim-monokai
 [submodule "vim/pack/plugins/start/ale"]
 	path = vim/pack/plugins/start/ale
 	url = https://github.com/dense-analysis/ale
@@ -50,3 +47,6 @@
 [submodule "vim/pack/colorschemes/start/vim-colors-solarized"]
 	path = vim/pack/colorschemes/start/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized
+[submodule "vim/pack/colorschemes/start/vim-monokai-pro"]
+	path = vim/pack/colorschemes/start/vim-monokai-pro
+	url = https://github.com/phanviet/vim-monokai-pro
