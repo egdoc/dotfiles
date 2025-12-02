@@ -101,7 +101,7 @@ set incsearch
 " User interface ------{{{
 
 " Set colorscheme
-colorscheme nord
+colorscheme monokai_pro
 
 " Background is dark
 set background=dark
