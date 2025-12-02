@@ -1,5 +1,5 @@
 # Source default account configuration
-source "gpg2 -dq $HOME/.password-store/mutt/main.gpg |"
+source "gpg2 -dq $HOME/.password-store/mutt/dev.gpg |"
 
 # +----------------------------------------------------------------------------+
 # |General setting                                                             |
@@ -52,7 +52,6 @@ set certificate_file = ~/.config/mutt/certificates
 # +----------------------------------------------------------------------------+
 # | Gpg settings                                                               |
 # +----------------------------------------------------------------------------+
-
 # If set mutt expects a gpg-agent process to handle private key passphrase prompts
 set pgp_use_gpg_agent = yes
 
