@@ -35,6 +35,10 @@ alias gl='git log'
 alias gp='git pull --rebase'
 alias gs='git status'
 
+# GPG aliases
+alias gpgpub='gpg --list-keys --with-subkey-fingerprints'
+alias gpgsec='gpg --list-secret-keys --with-subkey-fingerprints'
+
 # ls aliases
 alias la='ls -al'
 alias lz='ls -alZ'
