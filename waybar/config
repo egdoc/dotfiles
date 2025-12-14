@@ -1,11 +1,32 @@
 {
   "layer": "bottom",
   "position": "top",
-  "height": 20,
+  "height": 26,
   "spacing": 5,
-  "modules-left": ["sway/workspaces","sway/mode"],
-  "modules-center": ["sway/window"],
-  "modules-right": ["idle_inhibitor","power-profiles-daemon","cpu","memory","battery#bat0","battery#bat1","pulseaudio","clock","tray"],
+  "modules-left": [
+    "sway/workspaces",
+    "sway/mode"
+  ],
+  "modules-center": [
+    "sway/window"
+  ],
+  "modules-right": [
+    "idle_inhibitor",
+    "custom/separator",
+    "power-profiles-daemon",
+    "custom/separator",
+    "cpu",
+    "custom/separator",
+    "memory",
+    "custom/separator",
+    "battery#bat0",
+    "battery#bat1",
+    "custom/separator",
+    "pulseaudio",
+    "custom/separator",
+    "clock",
+    "tray"
+  ],
   "sway/workspaces": {
     "format": "{value}"
   },
@@ -23,17 +44,17 @@
     }
   },
   "power-profiles-daemon": {
-    "format": "{profile}",
+    "format": "Profile: {profile}",
     "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
     "tooltip": true
   },
   "cpu": {
-    "interval": 10, 
-    "format": " {usage}%" 
+    "interval": 10,
+    "format": "CPU: {usage}%"
   },
   "memory": {
     "interval": 30,
-    "format": " {percentage}%"
+    "format": "RAM: {percentage}%"
   },
   "battery#bat0": {
     "bat": "BAT0",
@@ -60,7 +81,7 @@
     "format-icons": ["", "", "", "", ""]
   },
   "clock": {
-    "format": "{:%Y/%m/%d %H:%M}",
+    "format": "{:%a %Y/%m/%d %H:%M}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "year",
@@ -75,7 +96,7 @@
     "scroll-step": 5,
     "format": "{icon}",
     "format-icons": {
-      "default": ["", "", ""],
+      "default": ["", "", ""]
     },
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "on-click-right": "pavucontrol",
@@ -85,4 +106,9 @@
     "icon-size": 20,
     "spacing": 10
   },
+  "custom/separator": {
+    "format": "|",
+    "interval": "once",
+    "tooltip": "false"
+  }
 }
