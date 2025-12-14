@@ -31,7 +31,7 @@ mode "resize" {
   bindsym Escape mode "default"
 }
 
-set $system System: (l) lock (s) suspend (r) reboot (p) poweroff
+set $system System: (l)ock (s)uspend (r)eboot (p)oweroff
 mode "$system" {
   bindsym --release l exec --no-startup-id $lockcmd
   bindsym s exec --no-startup-id "systemctl suspend", mode "default"
@@ -41,7 +41,7 @@ mode "$system" {
   bindsym Escape mode "default"
 }
 
-set $tuned profile: (p) powersave (b) balanced (t) throughput-performance
+set $tuned profile: (p)owersave (b)alanced (t)hroughput-performance
 mode "$tuned" {
   bindsym p exec --no-startup-id "tuned-adm profile powersave", mode "default"
   bindsym b exec --no-startup-id "tuned-adm profile balanced", mode "default"
