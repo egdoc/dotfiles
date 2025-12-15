@@ -34,7 +34,8 @@
     "format": "{}"
   },
   "sway/window": {
-    "format": "{title}"
+    "format": "{title}",
+    "tooltip": false
   },
   "idle_inhibitor": {
     "format": "{icon}",
