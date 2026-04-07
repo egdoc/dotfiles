@@ -43,6 +43,9 @@ alias gpgsec='gpg --list-secret-keys --with-subkey-fingerprints'
 alias la='ls -al'
 alias lz='ls -alZ'
 
+# rsync aliases
+alias rsyncx='rsync --archive --acls --xattrs --hard-links'
+
 # Virtualenv aliases
 alias ve="python -m venv .venv && source .venv/bin/activate"
 
