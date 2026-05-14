@@ -53,3 +53,13 @@ alias ve="python -m venv .venv && source .venv/bin/activate"
 if command -v vimx &> /dev/null; then
   alias vim="vimx"
 fi
+
+
+#
+# Functions
+#
+
+# Extract rpm package in current working directory.
+xrpm() {
+  rpm2cpio "$1" | cpio -idmv
+}
