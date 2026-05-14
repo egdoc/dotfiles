@@ -28,9 +28,6 @@ pathmunge() {
 }
 
 
-# Environment variables
-export DOCKER_HOST="unix:///$XDG_RUNTIME_DIR/podman/podman.sock"
-
 if command -v vimx &> /dev/null; then
   export EDITOR="vimx"
 elif command -v vim &> /dev/null; then
