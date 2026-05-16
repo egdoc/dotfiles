@@ -1,6 +1,5 @@
 all: alacritty \
 	bash \
-	foot \
 	git \
 	vim \
 	i3 \
@@ -24,11 +23,6 @@ bash:
 	for i in bash_profile bashrc; do \
 		ln -sf "${CURDIR}/$$i" ~/."$$i"; \
 	done
-
-.PHONY: foot
-foot:
-	rm -rf ~/.config/foot
-	ln -s "${CURDIR}/foot" ~/.config/foot
 
 git:
 	rm -rf ~/.gitconfig
