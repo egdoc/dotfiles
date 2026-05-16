@@ -7,7 +7,6 @@ all: alacritty \
 	mutt \
 	mpv \
 	npm \
-	picom \
 	pylint \
 	rofi \
 	waybar \
@@ -56,9 +55,6 @@ mpv:
 
 npm:
 	ln -sf "${CURDIR}/npmrc" ~/.npmrc
-
-picom:
-	ln -sf "${CURDIR}/picom.conf" ~/.config/picom.conf
 
 pylint:
 	ln -sf "${CURDIR}/pylintrc" ~/.config/pylintrc
