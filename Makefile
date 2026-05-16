@@ -1,5 +1,4 @@
 all: alacritty \
-	autorandr \
 	bash \
 	foot \
 	git \
@@ -21,11 +20,6 @@ all: alacritty \
 alacritty:
 	rm -rf ~/.config/alacritty
 	ln -s "${CURDIR}/alacritty" ~/.config/alacritty
-
-.PHONY: autorandr
-autorandr:
-	rm -rf ~/.config/autorandr
-	ln -s "${CURDIR}/autorandr" ~/.config/autorandr
 
 bash:
 	for i in bash_profile bashrc; do \
