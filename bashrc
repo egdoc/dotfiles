@@ -36,8 +36,8 @@ alias gp='git pull --rebase'
 alias gs='git status'
 
 # GPG aliases
-alias gpgpub='gpg --list-keys --with-subkey-fingerprints'
-alias gpgsec='gpg --list-secret-keys --with-subkey-fingerprints'
+alias gpgpub='gpg --list-keys --with-subkey-fingerprints --with-keygrip'
+alias gpgsec='gpg --list-secret-keys --with-subkey-fingerprints --with-keygrip'
 
 # ls aliases
 alias la='ls -al'
