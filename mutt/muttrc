@@ -1,9 +1,9 @@
-# Source default account configuration
-source "gpg2 -dq $HOME/.password-store/mutt/dev.gpg |"
-
 # +----------------------------------------------------------------------------+
 # |General setting                                                             |
 # +----------------------------------------------------------------------------+
+
+# Set real name
+set realname = "Egidio Docile"
 
 # Require that all connections to remote servers be encrypted and attempt to
 # use it even if the server doesn't advertise the capability. Abort if connection
@@ -23,17 +23,6 @@ set mail_check = 60
 
 # Beep whenever a new mail is notified
 set beep_new = yes
-
-# Specify the filename containing the signature to be appended to all outgoing
-# messages. If the filename ends with a pipe, it is assumed that filename is
-# a shell command and input should be read from its standard output
-set signature = "~/.config/mutt/signature"
-
-# Whether or not copies of outgoing messages should be saved. By default
-# sent email are stored on the file specified with `$record` (default is
-# ~/sent). Since gmail has this functionality built-in we disable copy to
-# avoid local copies to be stored.
-set copy = no
 
 # Specify how to sort messages in the "index" menu (Newest mail first)
 set sort = "reverse-date-received"
@@ -119,7 +108,4 @@ macro index gt "<change-folder>$trash<enter>" "go to trash"
 macro index,pager a "<pipe-message>goobook add<return>" "add sender address to Google contacts"
 macro index,pager \cb "<pipe-message>urlscan<Enter>" "call urlscan"
 macro attach,compose \cb "<pipe-entry>urlscan<Enter>" "call urlscan"
-
-# Macros for switching accounts
-macro index <f2> '<sync-mailbox><enter-command>source "gpg2 -dq $HOME/.password-store/mutt/main.gpg |"<enter><change-folder>!<enter>'
-macro index <f3> '<sync-mailbox><enter-command>source "gpg2 -dq $HOME/.password-store/mutt/dev.gpg |"<enter><change-folder>!<enter>'
+macro attach s '<save-entry><bol>~/Downloads/<eol>' 'save attachment'

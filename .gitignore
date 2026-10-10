@@ -5,6 +5,7 @@
 !.vim/coc-settings.json
 !.vim/pack
 mutt/*
+!mutt/accounts
 !mutt/color_schemes
 !mutt/mailcap
 !mutt/muttrc

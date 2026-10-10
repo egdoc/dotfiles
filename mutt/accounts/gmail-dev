@@ -1,0 +1,17 @@
+source ~/.config/mutt/muttrc
+
+set my_gmail_user = "`gpg --for-your-eyes-only -q -d ~/.password-store/mail-accounts/gmail/dev/user.gpg`"
+
+set mbox_type = Maildir
+set folder = "~/Documents/mail/gmail-dev"
+set spoolfile = "+/"
+set postponed = "+.[Gmail].Drafts"
+set record = "+.[Gmail].Sent Mail"
+set trash = "+.[Gmail].Trash"
+
+# Send options
+set from = $my_gmail_user@gmail.com
+set smtp_url = "smtps://$my_gmail_user@smtp.gmail.com"
+set smtp_pass = "`gpg --for-your-eyes-only -q -d ~/.password-store/mail-accounts/gmail/dev/app-password.gpg`"
+set signature = "~/.config/mutt/accounts/dev/signature"
+set copy = yes
