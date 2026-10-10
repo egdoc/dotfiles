@@ -19,6 +19,13 @@ set $barfont    "pango:DejaVu Sans Mono 9"
 set $notebook_display "eDP-1"
 set $external_display "HDMI-A-2"
 
+input "type:touchpad" {
+  tap enabled
+  dwt enabled
+  drag enabled
+  tap_button_map lrm
+}
+
 #
 # Modes
 #
