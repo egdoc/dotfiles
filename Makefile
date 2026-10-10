@@ -11,7 +11,9 @@ all: alacritty \
 	rofi \
 	waybar \
 	sway \
-	tmux
+	tmux \
+	foot
+
 
 .PHONY: alacritty
 alacritty:
@@ -76,6 +78,11 @@ sway:
 
 tmux:
 	ln -sf "${CURDIR}/tmux.conf" ~/.tmux.conf
+
+.PHONY: foot
+foot:
+	rm -r ~/.config/foot
+	ln -s "${CURDIR}/foot" ~/.config/foot
 
 uninstall:
 	find ~ -lname "${CURDIR}/*" -delete
