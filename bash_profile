@@ -8,26 +8,6 @@
 [ -f ~/.bashrc ] && . ~/.bashrc
 
 
-pathmunge() {
-  local -r dir="$1"
-  local -r pos="$2"
-
-  [[ -h "${dir}" ]] && return
-
-  case ":${PATH}:" in
-    *:"${dir}":*)
-      ;;
-    *)
-      if [[ "${pos}" == "after" ]] ; then
-        PATH=$PATH:"${dir}"
-      else
-        PATH="${dir}":$PATH
-      fi
-      ;;
-  esac
-}
-
-
 if command -v vimx &> /dev/null; then
   export EDITOR="vimx"
 elif command -v vim &> /dev/null; then
@@ -36,8 +16,5 @@ else
   export EDITOR="vi"
 fi
 
-
 # Add directories to PATH
 pathmunge ~/.local/bin before
-
-unset -f pathmunge

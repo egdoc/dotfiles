@@ -59,6 +59,30 @@ fi
 # Functions
 #
 
+# Add directory to PATH only if it is not already part of it.
+# Arguments:
+#   Path of the directory to add to PATH
+#   Position of the directory relative to PATH. If "after" is used,
+#     the directory is appended to path, otherwise it is prepended.
+pathmunge() {
+  local -r dir="$1"
+  local -r pos="$2"
+
+  [[ -h "${dir}" ]] && return
+
+  case ":${PATH}:" in
+    *:"${dir}":*)
+      ;;
+    *)
+      if [[ "${pos}" == "after" ]] ; then
+        PATH=$PATH:"${dir}"
+      else
+        PATH="${dir}":$PATH
+      fi
+      ;;
+  esac
+}
+
 # Extract rpm package in current working directory.
 xrpm() {
   rpm2cpio "$1" | cpio -idmv
