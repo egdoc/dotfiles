@@ -3,3 +3,5 @@
 	name = egdoc
 [url "git@github.com:"]
 	pushInsteadOf = https://github.com/
+[init]
+	defaultBranch = master
